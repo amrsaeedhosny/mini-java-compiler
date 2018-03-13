@@ -1,7 +1,96 @@
-PLUS \+
-MINIS -
-ASTRIX \*
-INTEGRAL_LITERAL [0-9]{1,10}
-FLOAT_LITERAL [0-9]{1,10}\.[0-9]{1,10}
-STRING_LITERAL \".*\"
-CHARACTER_LITERAL '.'
+EOL 				(\r\n|\r|\n)
+PLUS 				\+
+LEFT_CURLY_B 			\{
+RIGHT_CURLY_B 			\}
+LEFT_SQUARE_B 			\[
+RIGHT_SQUARE_B 			\]
+LEFT_ROUND_B 			\(
+RIGHT_ROUND_B 			\)
+COMMA 				,
+SEMICOLON 			;
+DOT 				\.
+NOT 				!
+ASSIGNMENT 			=
+EQUAL 				==
+NOT_EQUAL 			!=
+AND 				&&
+OR 				\|\|
+MINUS 				-
+MULTIPLY 			\*
+DIV 				\/
+MOD 				%
+LESSTHAN 			<
+GREATERTHAN 			>
+LESS_EQ 			<=
+GREATER_EQ 			>=
+IF 				\bif\b
+INT 				\bint\b
+ELSE 				\belse\b
+MAIN 				\bmain\b
+THIS 				\bthis\b
+TRUE 				\btrue\b
+VOID 				\bvoid\b
+CLASS 				\bclass\b
+FALSE 				\bfalse\b
+WHILE 				\bwhile\b
+LENGTH				\blength\b
+PUBLIC 				\bpublic\b
+PRIVATE 			\bprivate\b
+PROTECTED 			\bprotected\b
+RETURN 				\breturn\b
+STATIC				\bstatic\b
+NEW 				\bnew\b
+STRING				\bstring\b
+FLOAT				\bfloat\b
+CHARACTER			\bchar\b
+BOOLEAN				\bboolean\b
+EXTENDS				\bextends\b
+NULL				\bnull\b
+ABSTRACT			\babstract\b
+ASSERT				\bassert\b
+BREAK				\bbreak\b
+CONTINUE			\bcontinue\b
+BYTE				\bbyte\b
+CASE				\bcase\b
+CATCH				\bcatch\b
+CONST				\bconst\b
+DEFAULT				\bdefault\b
+DO				\bdo\b
+DOUBLE				\bdouble\b
+ENUM				\benum\b
+FINAL				\bfinal\b
+FINALLY				\bfinally\b
+FOR				\bfor\b
+GOTO				\bgoto\b
+IMPLEMENTS			\bimplements\b
+IMPORT				\bimport\b
+PACKAGE				\bpackage\b
+INSTANCEOF			\binstanceof\b
+INTERFACE			\binterface\b
+SHORT				\bshort\b
+SUPER				\bsuper\b
+SWITCH				\bswitch\b
+THROW				\bthrow\b
+TRY				\btry\b
+SYSTEM.OUT.PRINTLN		\bSystem\.out\.println\b
+INTEGRAL_LITERAL		\b\d+\b
+FLOAT_LITERAL			\b\d+\.\d+\b
+STRING_LITERAL			".*?"
+ID				\b[a-zA-Z_]\w*\b
+S_COMMENTS			\/\/.*
+M_COMMENTS			\/\*(.|(\r\n|\r|\n))*?\*\/
+A_CHAR				('.'|'\\(b|t|n|f|r|"|'|\\)')
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
