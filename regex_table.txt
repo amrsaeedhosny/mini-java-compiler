@@ -1,3 +1,7 @@
-label1 regex1
-label2 regex2
-label3 regex3
+PLUS \+
+MINIS -
+ASTRIX \*
+INTEGRAL_LITERAL [0-9]{1,10}
+FLOAT_LITERAL [0-9]{1,10}\.[0-9]{1,10}
+STRING_LITERAL \".*\"
+CHARACTER_LITERAL '.'
