@@ -55,7 +55,7 @@ public class Token {
 	@Override
     public String toString() {
     	return "Type: " + type + "  Value: " + value + "  Start Index: " + startIndex
-    	+ "  End Index: " + endIndex;
+    	+ "  End Index: " + endIndex + "\n";
     }
     
 }
