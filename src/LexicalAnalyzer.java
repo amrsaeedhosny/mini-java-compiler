@@ -91,11 +91,12 @@ public class LexicalAnalyzer {
 					code.substring(0, matchedTokens.get(0).getStartIndex()),
 					0, matchedTokens.get(0).getStartIndex());
 		}
-		if ( (matchedTokens.get(matchedTokens.size()-1).getEndIndex())-1 != (code.length()-1) ) {
+		if ( (matchedTokens.get(matchedTokens.size()-1).getEndIndex()) != (code.length()) ) {
 			// caught an error
 			unknownToken2 = new Token(Token.UNKNOWN_TOKEN_TYPE, 
-					code.substring(matchedTokens.get(matchedTokens.size()-1).getEndIndex()-1, code.length()-1)
-							,matchedTokens.get(matchedTokens.size()-1).getEndIndex()-1 ,code.length());
+					code.substring(matchedTokens.get(matchedTokens.size()-1).getEndIndex(), code.length())
+							,matchedTokens.get(matchedTokens.size()-1).getEndIndex() ,code.length());
+
 		}
 		if (unknownToken1 != null) matchedTokens.add(unknownToken1);
 		if (unknownToken2 != null) matchedTokens.add(unknownToken2);
