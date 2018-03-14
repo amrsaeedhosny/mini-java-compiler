@@ -13,7 +13,7 @@ public class MiniJavaCompiler {
 	public static void main(String[] args) {
 		regexTable = RegexTableReader.readRegexTable("regex_table.txt");
 		miniJavaCode = CodeReader.readCode("mini_java_code.txt");
-		codeTokens = Tokenizer.tokenizeCode(miniJavaCode, regexTable);
+		codeTokens = LexicalAnalyzer.analyze(miniJavaCode, regexTable);
 	}
 
 }
