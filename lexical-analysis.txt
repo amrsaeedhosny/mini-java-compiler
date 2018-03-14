@@ -1,0 +1,39 @@
+< CLASS > : -class-
+< ID > : -class1-
+< LEFT_CURLY_B > : -{-
+< EOL > : -ENDOFLINE-
+< INT > : -int-
+< ID > : -value-
+< ASSIGNMENT > : -=-
+< INTEGRAL_LITERAL > : -3-
+< SEMICOLON > : -;-
+< EOL > : -ENDOFLINE-
+< STRING > : -String-
+< ID > : -text-
+< ASSIGNMENT > : -=-
+< STRING_LITERAL > : -"int x = 1"-
+< SEMICOLON > : -;-
+< EOL > : -ENDOFLINE-
+< M_COMMENTS > : -/*
+		if (num < 1)
+            	num = num +1 ;
+	*/-
+< EOL > : -ENDOFLINE-
+< PRIVATE > : -private-
+< VOID > : -void-
+< ID > : -print-
+< LEFT_ROUND_B > : -(-
+< RIGHT_ROUND_B > : -)-
+< EOL > : -ENDOFLINE-
+< LEFT_CURLY_B > : -{-
+< EOL > : -ENDOFLINE-
+< SYSTEM.OUT.PRINTLN > : -System.out.println-
+< LEFT_ROUND_B > : -(-
+< STRING_LITERAL > : -"/*hello*/"-
+< RIGHT_ROUND_B > : -)-
+< SEMICOLON > : -;-
+< EOL > : -ENDOFLINE-
+< RIGHT_CURLY_B > : -}-
+< EOL > : -ENDOFLINE-
+< RIGHT_CURLY_B > : -}-
+< SEMICOLON > : -;-

@@ -1,4 +1,6 @@
 import items.Token;
+
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -42,7 +44,6 @@ public class LexicalAnalyzer {
 			
 		}
 		
-		// sort the found token by their startIndex
 		sortMatchedTokens(matchedTokens);
 		
 		//remove duplicate
@@ -81,7 +82,6 @@ public class LexicalAnalyzer {
 		}
 		
 		// check for unknown token at the very beginning & at the very end
-		// Again, sort the found token by their startIndex
 		sortMatchedTokens(matchedTokens);
 		Token unknownToken1 = null;
 		Token unknownToken2 = null;
@@ -101,14 +101,29 @@ public class LexicalAnalyzer {
 		if (unknownToken1 != null) matchedTokens.add(unknownToken1);
 		if (unknownToken2 != null) matchedTokens.add(unknownToken2);
 		
-		// Again, sort the found token by their startIndex
 		sortMatchedTokens(matchedTokens);
 		
-		//System.out.println(matchedTokens);
-		for(int i = 0 ; i < matchedTokens.size() ; i++)
-		{
-			System.out.println("< "+matchedTokens.get(i).getType()+" > : "+" "+matchedTokens.get(i).getValue());
+		for(int i = 0 ; i < matchedTokens.size() ; i++) {
+			
+			boolean space=false;
+			for(int j = 0 ; j < matchedTokens.get(i).getValue().length() ; j++)
+			{
+				if(matchedTokens.get(i).getValue().charAt(j)!=32 &&  matchedTokens.get(i).getValue().charAt(j) !=9)
+				{
+					space=true;
+					break;
+				}
+			}
+			if(!space){
+				matchedTokens.remove(i);
+				i--;
+			}
 		}
+		
+		
+		/* Save the matched tokens to file */
+		saveTokensToFile(matchedTokens, "lexical-analysis.txt");
+
 		return matchedTokens;
 	}
 	
@@ -125,6 +140,23 @@ public class LexicalAnalyzer {
 		        return 0;
 		    }
 		});
+	}
+	
+	private static void saveTokensToFile(ArrayList<Token> tokensList, String outputFileName) {
+		try (PrintWriter writer = new PrintWriter(outputFileName, "UTF-8")) {
+			for(int i = 0 ; i < tokensList.size() ; i++) {
+				String tokenLabel = tokensList.get(i).getType();
+				String tokenValue = tokensList.get(i).getValue();
+				if (tokenLabel.equals("EOL")) {
+					tokenValue = "ENDOFLINE";
+				}
+				writer.println("< "+ tokenLabel +" > : "+ "-" + tokenValue + "-");
+			}
+			System.out.println("Matched tokens saved to \"" + outputFileName + "\"");
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
 }
