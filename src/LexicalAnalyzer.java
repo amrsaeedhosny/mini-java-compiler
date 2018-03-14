@@ -35,8 +35,7 @@ public class LexicalAnalyzer {
 						break;
 					}
 				}
-				if(!check)
-				matchedTokens.add(token);
+				if(!check) matchedTokens.add(token);
 								
 			}
 

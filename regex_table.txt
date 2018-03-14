@@ -1,3 +1,6 @@
+STRING_LITERAL			".*?"
+S_COMMENTS			\/\/.*
+M_COMMENTS			\/\*(.|(\r\n|\r|\n))*?\*\/
 EOL 				(\r\n|\r|\n)
 PLUS 				\+
 LEFT_CURLY_B 			\{
@@ -8,7 +11,6 @@ LEFT_ROUND_B 			\(
 RIGHT_ROUND_B 			\)
 COMMA 				,
 SEMICOLON 			;
-DOT 				\.
 NOT 				!
 ASSIGNMENT 			=
 EQUAL 				==
@@ -40,7 +42,7 @@ PROTECTED 			\bprotected\b
 RETURN 				\breturn\b
 STATIC				\bstatic\b
 NEW 				\bnew\b
-STRING				\bstring\b
+STRING				\bString\b
 FLOAT				\bfloat\b
 CHARACTER			\bchar\b
 BOOLEAN				\bboolean\b
@@ -73,14 +75,11 @@ SWITCH				\bswitch\b
 THROW				\bthrow\b
 TRY				\btry\b
 SYSTEM.OUT.PRINTLN		\bSystem\.out\.println\b
+DOT 				\.
 INTEGRAL_LITERAL		\b\d+\b
 FLOAT_LITERAL			\b\d+\.\d+\b
-STRING_LITERAL			".*?"
-ID				\b[a-zA-Z_]\w*\b
-S_COMMENTS			\/\/.*
-M_COMMENTS			\/\*(.|(\r\n|\r|\n))*?\*\/
 A_CHAR				('.'|'\\(b|t|n|f|r|"|'|\\)')
-
+ID				\b[a-zA-Z_]\w*\b
 
 
 
