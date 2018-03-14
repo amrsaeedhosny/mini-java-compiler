@@ -67,7 +67,7 @@ public class LexicalAnalyzer {
 	
 			int currentTokenEndIndex = currentToken.getEndIndex();
 			int nextTokenStartIndex = nextToken.getStartIndex();
-			if (currentTokenEndIndex != nextTokenStartIndex && currentTokenEndIndex!=nextTokenStartIndex-1) {
+			if (currentTokenEndIndex != nextTokenStartIndex) {
 				// caught an error
 				Token unknownToken = new Token(Token.UNKNOWN_TOKEN_TYPE, 
 						code.substring(currentTokenEndIndex, nextTokenStartIndex),
@@ -107,7 +107,7 @@ public class LexicalAnalyzer {
 		//System.out.println(matchedTokens);
 		for(int i = 0 ; i < matchedTokens.size() ; i++)
 		{
-			System.out.println("<"+matchedTokens.get(i).getType()+"> : "+" "+matchedTokens.get(i).getValue());
+			System.out.println("< "+matchedTokens.get(i).getType()+" > : "+" "+matchedTokens.get(i).getValue());
 		}
 		return matchedTokens;
 	}
