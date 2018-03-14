@@ -27,12 +27,13 @@ public class LexicalAnalyzer {
 	
 	public static ArrayList<String> tokenizeCode(String code) {
 		ArrayList<String> codeTokens = new ArrayList<>();
-		String tokensDelimiter = "(\\+|-)";
+		String tokensDelimiter = 
+				"\\(\\+|-|\\{|\\}|\\[|\\]|\\(|\\)|,|;|!|=|==|!=|&&|\\|\\||\\*|\\/|%|<|>|<=|>=|\\r\\n|\\r|\\n\\)"; // stopped at IF in regex_table.txt
 		Pattern delimiterPattern = Pattern.compile(tokensDelimiter);
 		
 		Matcher delimiterMatcher = delimiterPattern.matcher(code);
 		int codeIndex = 0;
-		while (delimiterMatcher.find())
+		while (delimiterMatcher.find(codeIndex))
 		{
 			// found a delimiter
 			String delimiter = delimiterMatcher.group();
@@ -46,6 +47,11 @@ public class LexicalAnalyzer {
 				codeTokens.add(codeToken);
 			}
 			codeIndex = delimiterEndPosition;
+		}
+		
+		if (codeIndex != code.length()) { // handles last token unfound
+			String codeToken = code.substring(codeIndex, code.length());
+			codeTokens.add(codeToken);
 		}
 
 		return codeTokens;
