@@ -1,6 +1,5 @@
-/MiniJavaCompiler.class
-/Tokenizer.class
 /items/
 /readers/
-/LexicalAnalyzer.class
 /LexicalAnalyzer$1.class
+/LexicalAnalyzer.class
+/MiniJavaCompiler.class

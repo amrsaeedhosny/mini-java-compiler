@@ -27,36 +27,30 @@ public class LexicalAnalyzer {
 				String foundToken = matcher.group();
 				int startIndex = matcher.start();
 				int endIndex = matcher.end();
-				
 				Token token = new Token(tokenType, foundToken, startIndex, endIndex);
-				
-				boolean check =false;
-				for(int i = 0 ; i < matchedTokens.size() ; i++){
-					if(startIndex>=matchedTokens.get(i).getStartIndex() && endIndex<=matchedTokens.get(i).getEndIndex())
-					{
-						check=true;
-						break;
-					}
-				}
-				if(!check) matchedTokens.add(token);
+				matchedTokens.add(token);
 								
 			}
 		}
-		
 		sortMatchedTokens(matchedTokens); // the sort method puts the longest match first
 		
-		//remove duplicate & remove sub-matches
+		//remove duplicate
 		for(int i = 0 ; i < matchedTokens.size()-1 ; i++)
 		{
 			if(matchedTokens.get(i).getStartIndex()==matchedTokens.get(i+1).getStartIndex()) {
 				matchedTokens.remove(i+1);
 				i--;
 			}
-			else if ( (matchedTokens.get(i).getStartIndex() < matchedTokens.get(i+1).getStartIndex())
-							&& (matchedTokens.get(i).getEndIndex()>= matchedTokens.get(i+1).getEndIndex())
-						) {
-				matchedTokens.remove(i+1);
-				i--;
+		}
+		//remove sub-tokens	
+		for(int i = 0 ; i < matchedTokens.size() ; i++){
+			for(int j = i+1 ; j < matchedTokens.size() ; j++){
+				if(matchedTokens.get(j).getStartIndex()>matchedTokens.get(i).getStartIndex()&&
+					matchedTokens.get(j).getStartIndex()<matchedTokens.get(i).getEndIndex()	
+						){
+					matchedTokens.remove(j);
+					j--;
+				}
 			}
 		}
 		
