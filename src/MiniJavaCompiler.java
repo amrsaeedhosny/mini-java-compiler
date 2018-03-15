@@ -24,10 +24,10 @@ public class MiniJavaCompiler {
 				tokenValue = "ENDOFLINE";
 			}
 			if (tokenLabel.equals(Token.UNKNOWN_TOKEN_TYPE)) {
-				System.out.println("ERROR "+ "<"+ tokenLabel +"> : " +" '" + tokenValue + "' This token did not match any RE @ index " + token.getStartIndex());
+				System.out.println("ERROR "+ "< "+ tokenLabel +" > : " +" '" + tokenValue + "' This token did not match any RE @ index " + token.getStartIndex());
 			}
 			else {
-				System.out.println("<"+ tokenLabel +"> : "+ "-" + tokenValue + "-");
+				System.out.println("< "+ tokenLabel +" > : "+ "-" + tokenValue + "-");
 			}
 			
 		}

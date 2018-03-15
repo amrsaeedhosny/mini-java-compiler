@@ -40,8 +40,6 @@ public class LexicalAnalyzer {
 				if(!check) matchedTokens.add(token);
 								
 			}
-
-			
 		}
 		
 		sortMatchedTokens(matchedTokens);
@@ -151,10 +149,10 @@ public class LexicalAnalyzer {
 					tokenValue = "ENDOFLINE";
 				}
 				if (tokenLabel.equals(Token.UNKNOWN_TOKEN_TYPE)) {
-					writer.println("ERROR "+ "<"+ tokenLabel +"> : " +" '" + tokenValue + "' This token did not match any RE @ index " + token.getStartIndex());
+					writer.println("ERROR "+ "< "+ tokenLabel +" > : " +" '" + tokenValue + "' This token did not match any RE @ index " + token.getStartIndex());
 				}
 				else {
-					writer.println("<"+ tokenLabel +"> : "+ "-" + tokenValue + "-");
+					writer.println("< "+ tokenLabel +" > : "+ "-" + tokenValue + "-");
 				}
 				
 			}
