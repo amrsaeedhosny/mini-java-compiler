@@ -17,13 +17,19 @@ public class MiniJavaCompiler {
 		
 		// testing
 		System.out.println("---------------------------------------------------------");
-		for(int i = 0 ; i < matchedTokens.size() ; i++) {
-			String tokenLabel = matchedTokens.get(i).getType();
-			String tokenValue = matchedTokens.get(i).getValue();
+		for (Token token: matchedTokens) {
+			String tokenLabel = token.getType();
+			String tokenValue = token.getValue();
 			if (tokenLabel.equals("EOL")) {
 				tokenValue = "ENDOFLINE";
 			}
-			System.out.println("< "+ tokenLabel +" > : "+ "-" + tokenValue + "-");
+			if (tokenLabel.equals(Token.UNKNOWN_TOKEN_TYPE)) {
+				System.out.println("ERROR "+ "<"+ tokenLabel +"> : " +" '" + tokenValue + "' This token did not match any RE @ index " + token.getStartIndex());
+			}
+			else {
+				System.out.println("<"+ tokenLabel +"> : "+ "-" + tokenValue + "-");
+			}
+			
 		}
 		System.out.println("---------------------------------------------------------");
 		

@@ -144,13 +144,19 @@ public class LexicalAnalyzer {
 	
 	private static void saveTokensToFile(ArrayList<Token> tokensList, String outputFileName) {
 		try (PrintWriter writer = new PrintWriter(outputFileName, "UTF-8")) {
-			for(int i = 0 ; i < tokensList.size() ; i++) {
-				String tokenLabel = tokensList.get(i).getType();
-				String tokenValue = tokensList.get(i).getValue();
+			for (Token token: tokensList) {
+				String tokenLabel = token.getType();
+				String tokenValue = token.getValue();
 				if (tokenLabel.equals("EOL")) {
 					tokenValue = "ENDOFLINE";
 				}
-				writer.println("< "+ tokenLabel +" > : "+ "-" + tokenValue + "-");
+				if (tokenLabel.equals(Token.UNKNOWN_TOKEN_TYPE)) {
+					writer.println("ERROR "+ "<"+ tokenLabel +"> : " +" '" + tokenValue + "' This token did not match any RE @ index " + token.getStartIndex());
+				}
+				else {
+					writer.println("<"+ tokenLabel +"> : "+ "-" + tokenValue + "-");
+				}
+				
 			}
 			System.out.println("Matched tokens saved to \"" + outputFileName + "\"");
 		}

@@ -1,12 +1,6 @@
-class class1 {
-	int value = 3;
-	String text = "int x = 1";
-	/*
-		if (num < 1)
-            	num = num +1 ;
-	*/
-	private void print()	
-	{
-		System.out.println("/*hello*/");	
-	}
+class myclass{
+/* my ultimate comment */
+int var)) XX1 = 0; */
+int 3CC1) = 0; */
+10+5;
 };
