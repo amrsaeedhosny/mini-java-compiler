@@ -80,16 +80,3 @@ INTEGRAL_LITERAL		\b\d+\b
 FLOAT_LITERAL			\b\d+\.\d+\b
 A_CHAR				('.'|'\\(b|t|n|f|r|"|'|\\)')
 ID				\b[a-zA-Z_]\w*\b
-
-
-
-
-
-
-	
-
-
-
-
-
-
