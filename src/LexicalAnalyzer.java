@@ -29,9 +29,10 @@ public class LexicalAnalyzer {
 				int endIndex = matcher.end();
 				
 				Token token = new Token(tokenType, foundToken, startIndex, endIndex);
+				
 				boolean check =false;
 				for(int i = 0 ; i < matchedTokens.size() ; i++){
-					if(startIndex>=matchedTokens.get(i).getStartIndex()&&endIndex<=matchedTokens.get(i).getEndIndex())
+					if(startIndex>=matchedTokens.get(i).getStartIndex() && endIndex<=matchedTokens.get(i).getEndIndex())
 					{
 						check=true;
 						break;
@@ -42,19 +43,22 @@ public class LexicalAnalyzer {
 			}
 		}
 		
-		sortMatchedTokens(matchedTokens);
+		sortMatchedTokens(matchedTokens); // the sort method puts the longest match first
 		
-		//remove duplicate
+		//remove duplicate & remove sub-matches
 		for(int i = 0 ; i < matchedTokens.size()-1 ; i++)
 		{
-			if(matchedTokens.get(i).getStartIndex()==matchedTokens.get(i+1).getStartIndex())
-			{
+			if(matchedTokens.get(i).getStartIndex()==matchedTokens.get(i+1).getStartIndex()) {
+				matchedTokens.remove(i+1);
+				i--;
+			}
+			else if ( (matchedTokens.get(i).getStartIndex() < matchedTokens.get(i+1).getStartIndex())
+							&& (matchedTokens.get(i).getEndIndex()>= matchedTokens.get(i+1).getEndIndex())
+						) {
 				matchedTokens.remove(i+1);
 				i--;
 			}
 		}
-		
-		
 		
 		
 		/* Check for unknown (Error) tokens */
@@ -120,11 +124,18 @@ public class LexicalAnalyzer {
 		
 		
 		/* Save the matched tokens to file */
-		saveTokensToFile(matchedTokens, "lexical-analysis.txt");
+		saveTokensToFile(matchedTokens, "lexical-analysis-output.txt");
 
 		return matchedTokens;
 	}
 	
+	/**
+	 * Sorts tokens in the list by their start position.
+	 * If the start position is the same it sorts them by their end position
+	 * such that the longest match will be put first.
+	 * 
+	 * @param list A list of tokens
+	 */
 	private static void sortMatchedTokens(ArrayList<Token> list) {
 		Collections.sort(list, new Comparator<Token>() {
 			@Override
@@ -135,7 +146,16 @@ public class LexicalAnalyzer {
 				else if (t1.getStartIndex() < t2.getStartIndex()) {
 					return -1;
 				}
-		        return 0;
+				else if (t1.getStartIndex() == t2.getStartIndex()) {
+					if (t1.getEndIndex() > t2.getEndIndex()) {
+						return -1;
+					}
+					else if (t1.getEndIndex() < t2.getEndIndex()) {
+						return 1;
+					}
+				}
+				
+				return 0;
 		    }
 		});
 	}

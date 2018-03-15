@@ -1,7 +1,5 @@
 < FLOAT > : -float-
 < ID > : -x-
 < ASSIGNMENT > : -=-
-< INTEGRAL_LITERAL > : -5-
-< DOT > : -.-
-< INTEGRAL_LITERAL > : -5-
+< FLOAT_LITERAL > : -5.5-
 < SEMICOLON > : -;-
