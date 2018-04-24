@@ -1,4 +1,4 @@
-package items;
+package mjc.models;
 
 public class TokenRegex {
 	String label;

@@ -1,4 +1,4 @@
-package items;
+package mjc.models;
 
 public class Token {
 	
@@ -10,7 +10,7 @@ public class Token {
     int endIndex;
     
     public Token(){
-        
+    	// no parameters constructor        
     }
     
     public Token(String type, String value, int startIndex, int endIndex) {

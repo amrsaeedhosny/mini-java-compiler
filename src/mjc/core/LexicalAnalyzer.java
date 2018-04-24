@@ -1,5 +1,4 @@
-import items.Token;
-
+package mjc.core;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -7,11 +6,14 @@ import java.util.Comparator;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import mjc.models.Token;
+import mjc.models.TokenRegex;
 
-import items.TokenRegex;
-
-public class LexicalAnalyzer {
+public final class LexicalAnalyzer {
 	
+	private LexicalAnalyzer() {
+		// private constructor prevents the class from being instantiated
+	}
 	
 	public static ArrayList<Token> analyze(String code, ArrayList<TokenRegex> regexTable) {
 		ArrayList<Token> matchedTokens = new ArrayList<>();

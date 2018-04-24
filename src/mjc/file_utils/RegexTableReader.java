@@ -1,12 +1,21 @@
-package readers;
+package mjc.file_utils;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
-import items.TokenRegex;
 
-public class RegexTableReader {
+import mjc.models.TokenRegex;
+
+/**
+ * Utility class to read mini-java Regex from file. 
+ */
+public final class RegexTableReader {
+	
+	private RegexTableReader() {
+		// private constructor prevents the class from being instantiated
+	}
+	
 	private static Scanner input;
 
 	public static ArrayList<TokenRegex> readRegexTable(String path) {

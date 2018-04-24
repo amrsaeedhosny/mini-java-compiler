@@ -1,10 +1,19 @@
-package readers;
+package mjc.file_utils;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-public class CodeReader {
+/**
+ * Utility class to read mini-java code from file.
+ */
+public final class CodeReader {
+	
+	
+	private CodeReader() {
+		// private constructor prevents the class from being instantiated		
+	}
+	
 	private static Scanner input;
 
 	public static String readCode(String path) {

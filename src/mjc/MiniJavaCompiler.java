@@ -1,8 +1,13 @@
-import items.TokenRegex;
-import items.Token;
+package mjc;
+import mjc.core.LexicalAnalyzer;
+import mjc.core.SyntaxAnalyzer;
+import mjc.file_utils.CodeReader;
+import mjc.file_utils.CodeTokensReader;
+import mjc.file_utils.RegexTableReader;
+import mjc.models.Token;
+import mjc.models.TokenRegex;
+
 import java.util.ArrayList;
-import readers.CodeReader;
-import readers.RegexTableReader;
 
 public class MiniJavaCompiler {
 
@@ -13,9 +18,29 @@ public class MiniJavaCompiler {
 	public static void main(String[] args) {
 		regexTable = RegexTableReader.readRegexTable("regex_table.txt");
 		miniJavaCode = CodeReader.readCode("mini_java_code.txt");
-		matchedTokens = LexicalAnalyzer.analyze(miniJavaCode, regexTable);
 		
+		/* Lexical Analysis */
+		matchedTokens = LexicalAnalyzer.analyze(miniJavaCode, regexTable);
 		// testing
+		printCodeTokens();
+		
+		/* Syntax Analysis */
+		int inputMethod = 1; // 1 -> memory , 2 -> file
+		if (inputMethod == 1) {
+			// take input from memory (output of lexical analysis)
+			SyntaxAnalyzer.analyze(matchedTokens);
+		}
+		else if (inputMethod == 2) {
+			// take input from file
+			ArrayList<Token> codeTokens = 
+					CodeTokensReader.read("code_tokens.txt");
+			SyntaxAnalyzer.analyze(codeTokens);			
+		}
+		
+		
+	}
+
+	private static void printCodeTokens() {
 		System.out.println("---------------------------------------------------------");
 		for (Token token: matchedTokens) {
 			String tokenLabel = token.getType();
@@ -32,7 +57,6 @@ public class MiniJavaCompiler {
 			
 		}
 		System.out.println("---------------------------------------------------------");
-		
 	}
 
 }
