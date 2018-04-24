@@ -1,0 +1,33 @@
+< CLASS > : -class-
+< ID > : -myclass-
+< LEFT_CURLY_B > : -{-
+< EOL > : -ENDOFLINE-
+< M_COMMENTS > : -/* my ultimate comment */-
+< EOL > : -ENDOFLINE-
+< INT > : -int-
+< ID > : -var-
+< RIGHT_ROUND_B > : -)-
+< RIGHT_ROUND_B > : -)-
+< ID > : -XX1-
+< ASSIGNMENT > : -=-
+< INTEGRAL_LITERAL > : -0-
+< SEMICOLON > : -;-
+< MULTIPLY > : -*-
+< DIV > : -/-
+< EOL > : -ENDOFLINE-
+< INT > : -int-
+ERROR < Unknown Token > :  ' 3CC1' This token did not match any RE @ index 69
+< RIGHT_ROUND_B > : -)-
+< ASSIGNMENT > : -=-
+< INTEGRAL_LITERAL > : -0-
+< SEMICOLON > : -;-
+< MULTIPLY > : -*-
+< DIV > : -/-
+< EOL > : -ENDOFLINE-
+< INTEGRAL_LITERAL > : -10-
+< PLUS > : -+-
+< INTEGRAL_LITERAL > : -5-
+< SEMICOLON > : -;-
+< EOL > : -ENDOFLINE-
+< RIGHT_CURLY_B > : -}-
+< SEMICOLON > : -;-
