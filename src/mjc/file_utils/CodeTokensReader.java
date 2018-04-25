@@ -3,7 +3,6 @@ package mjc.file_utils;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 import mjc.models.Token;
 
@@ -15,8 +14,6 @@ public final class CodeTokensReader {
 	private CodeTokensReader() {
 		// private constructor prevents the class from being instantiated
 	}
-
-	private static Scanner input;
 
 	public static ArrayList<Token> read(String path) {
 		String line = "";

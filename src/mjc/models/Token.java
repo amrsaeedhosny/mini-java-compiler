@@ -19,6 +19,11 @@ public class Token {
         this.startIndex = startIndex;
         this.endIndex =endIndex;
     }
+    
+    public Token(String type, String value) {
+        this.type = type;
+        this.value = value;
+    }
 
     public String getType() {
         return type;
