@@ -1,0 +1,18 @@
+package mjc.core.parser;
+
+import mjc.core.parser.interfaces.ICommaExpressionArgu;
+import mjc.core.parser.interfaces.IExpression;
+import mjc.core.parser.interfaces.IExpressionArgu;
+
+public class ExpressionArgu1 implements IExpressionArgu{
+
+	//ExpressionArgu ::= Expression CommaExpressionArgu
+	IExpression expression;
+	ICommaExpressionArgu commaExpressionArgu;
+	@Override
+	public String getValue() {
+		// TODO Auto-generated method stub
+		return expression.getValue()+commaExpressionArgu.gtValue();
+	}
+
+}

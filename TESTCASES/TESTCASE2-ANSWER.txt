@@ -1,0 +1,81 @@
+< CLASS > : class
+< ID > : Factorial
+< LEFT_CURLY_B > : {
+< PUBLIC > : public
+< STATIC > : static
+< VOID > : void
+< MAIN > : main
+< LEFT_ROUND_B > : (
+< STRING > : String
+< LEFT_SQUARE_B > : [
+< RIGHT_SQUARE_B > : ]
+< ID > : a
+< RIGHT_ROUND_B > : )
+< LEFT_CURLY_B > : {
+< SYSTEM.OUT.PRINTLN > : System.out.println
+< LEFT_ROUND_B > : (
+< NEW > : new
+< ID > : Fac
+< LEFT_ROUND_B > : (
+< RIGHT_ROUND_B > : )
+< DOT > : .
+< ID > : ComputeFac
+< LEFT_ROUND_B > : (
+< INTEGER_LITERAL > : 10
+< RIGHT_ROUND_B > : )
+< RIGHT_ROUND_B > : )
+< SEMICOLON > : ;
+< RIGHT_CURLY_B > : }
+< EOL > : End of line
+< RIGHT_CURLY_B > : }
+< EOL > : End of line
+< EOL > : End of line
+< CLASS > : class
+< ID > : Fac
+< LEFT_CURLY_B > : {
+< PUBLIC > : public
+< INT > : int
+< ID > : ComputeFac
+< LEFT_ROUND_B > : (
+< INT > : int
+< ID > : num
+< RIGHT_ROUND_B > : )
+< LEFT_CURLY_B > : {
+< INT > : int
+< ID > : num_aux
+< SEMICOLON > : ;
+< IF > : if
+< LEFT_ROUND_B > : (
+< ID > : num
+< LESSTHAN > : <
+< INTEGER_LITERAL > : 1
+< RIGHT_ROUND_B > : )
+< ID > : num_aux
+< ASSIGNMENT > : =
+< INTEGER_LITERAL > : 1
+< SEMICOLON > : ;
+< ELSE > : else
+< EOL > : End of line
+< EOL > : End of line
+< ID > : num_aux
+< ASSIGNMENT > : =
+< ID > : num
+< MULTIPLIY > : *
+< LEFT_ROUND_B > : (
+< THIS > : this
+< DOT > : .
+< ID > : ComputeFac
+< LEFT_ROUND_B > : (
+< ID > : num
+< PLUS > : +
+< INTEGER_LITERAL > : 1
+< RIGHT_ROUND_B > : )
+< RIGHT_ROUND_B > : )
+< SEMICOLON > : ;
+< RETURN > : return
+< ID > : num_aux
+< SEMICOLON > : ;
+< RIGHT_CURLY_B > : }
+< EOL > : End of line
+< RIGHT_CURLY_B > : }
+< EOL > : End of line

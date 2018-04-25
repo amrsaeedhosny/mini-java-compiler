@@ -1,0 +1,15 @@
+package mjc.core.parser;
+
+import mjc.core.parser.interfaces.IExpression;
+import mjc.core.parser.interfaces.ITypeOrIdentifier;
+
+public class TypeOrIdentifier5 implements ITypeOrIdentifier {
+	// Expression ::= "boolean" “[“ Expression “]”
+	IExpression expression;
+
+	@Override
+	public String getValue() {
+		// TODO Auto-generated method stub
+		return "boolean" + "[" + expression.getValue() + "]";
+	}
+}

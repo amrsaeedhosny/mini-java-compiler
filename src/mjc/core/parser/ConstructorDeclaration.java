@@ -1,0 +1,26 @@
+package mjc.core.parser;
+
+import mjc.core.parser.interfaces.IConstructorDeclaration;
+import mjc.core.parser.interfaces.IIdentifier;
+import mjc.core.parser.interfaces.IStatmentPrime;
+import mjc.core.parser.interfaces.ITypeIdentifier;
+import mjc.core.parser.interfaces.IVarDeclarationPrime;
+
+public class ConstructorDeclaration implements IConstructorDeclaration{
+
+//  ConstructorDeclatation ::= Identifier
+//	“(“ TypeIdentifier “)”
+//	“{“ VarDeclaration` Statement` “}”
+	
+	IIdentifier identifier;
+	ITypeIdentifier typeIdentifier;
+	IVarDeclarationPrime varDeclarationPrime;
+	IStatmentPrime statmentPrime;
+	
+	@Override
+	public String getValue() {
+		return identifier.getValue()+"("+typeIdentifier.getValue()+")"+"{"+varDeclarationPrime.getValue()+
+				statmentPrime.getValue()+"}";
+	}
+
+}

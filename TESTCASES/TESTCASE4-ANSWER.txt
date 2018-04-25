@@ -1,0 +1,54 @@
+< A_CHAR > : '5'
+< EOL > : End Of Line
+< A_CHAR > : '\''
+< EOL > : End Of Line
+< A_CHAR > : '\\'
+< EOL > : End Of Line
+< ERROR > : '''
+< EOL > : End Of Line
+< S_COMMENTS > : // "q" /* */
+
+< EOL > : End Of Line
+< M_COMMENTS > : /* //"/*a*/
+< ERROR > : "
+< EOL > : End Of Line
+< EOL > : End Of Line
+< MULTIPLY > : *
+< DIV > : /
+< EOL > : End Of Line
+< EOL > : End Of Line
+< M_COMMENTS > : /* 
+hello dear
+*/
+< EOL > : End Of Line
+< EOL > : End Of Line
+< INT > : int
+< ID > : x3
+< DOT > : .
+< INTEGER_LITERAL > : 4
+< ASSIGNMENT > : =
+< STRING_LITERAL > : "hello"
+< SEMICOLON > : ;
+< EOL > : End Of Line
+< EOL > : End Of Line
+< PUBLIC > : public
+< STATIC > : static
+< ID > : complex
+< ID > : _number
+< ASSIGNMENT > : =
+< ID > : news
+< ID > : complex
+< LEFT_ROUND_B > : (
+< RIGHT_ROUND_B > : )
+< SEMICOLON > : ;
+< S_COMMENTS > : //Default constructor
+
+< EOL > : End Of Line
+< ID > : bool
+< ID > : flag
+< ASSIGNMENT > : =
+< TRUE > : true
+< SEMICOLON > : ;
+
+ 
+ //////////"\'\\\\\'\'|\'[^']\'|\'\\\\[nbfrt\\\\\"]\'"
