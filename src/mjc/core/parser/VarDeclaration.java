@@ -9,6 +9,13 @@ public class VarDeclaration implements IVarDeclaration{
 	//VarDeclaration ::= Type Identifier “;”
 	IIdentifier identifier;
 	IType type;
+	
+	public VarDeclaration(IIdentifier identifier, IType type) {
+		super();
+		this.identifier = identifier;
+		this.type = type;
+	}
+
 	@Override
 	public String getValue() {
 		return type.getValue()+identifier.getValue()+";";

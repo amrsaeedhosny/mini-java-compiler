@@ -11,6 +11,12 @@ public class Statement5 implements IStatement{
 	IIdentifier identifier;
 	IEqualOrBracketExpression equalOrBracketExpression;
 	
+	public Statement5(IIdentifier identifier, IEqualOrBracketExpression equalOrBracketExpression) {
+		super();
+		this.identifier = identifier;
+		this.equalOrBracketExpression = equalOrBracketExpression;
+	}
+
 	@Override
 	public String getValue() {
 		// TODO Auto-generated method stub

@@ -9,6 +9,11 @@ public class Statement4 implements IStatement{
 	
 	IExpression expression;
 	
+	public Statement4(IExpression expression) {
+		super();
+		this.expression = expression;
+	}
+
 	@Override
 	public String getValue() {
 		// TODO Auto-generated method stub

@@ -10,6 +10,12 @@ public class StatementPrime1 implements IStatmentPrime{
 	IStatement statment;
 	IStatmentPrime statementPrime;
 	
+	public StatementPrime1(IStatement statment, IStatmentPrime statementPrime) {
+		super();
+		this.statment = statment;
+		this.statementPrime = statementPrime;
+	}
+
 	@Override
 	public String getValue() {
 		return statment.getValue()+statementPrime.getValue();

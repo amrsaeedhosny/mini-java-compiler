@@ -7,6 +7,11 @@ public class ExpressionItems9 implements IExpressionItems {
 	// ExpressionItems::= "+" Expression
 	IExpression expression;
 
+	public ExpressionItems9(IExpression expression) {
+		super();
+		this.expression = expression;
+	}
+
 	@Override
 	public String getValue() {
 		// TODO Auto-generated method stub

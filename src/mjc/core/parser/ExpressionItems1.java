@@ -7,6 +7,12 @@ public class ExpressionItems1 implements IExpressionItems{
 
 	//ExpressionItems::= "&&" Expression
 	IExpression expression;
+	
+	public ExpressionItems1(IExpression expression) {
+		super();
+		this.expression = expression;
+	}
+
 	@Override
 	public String getValue() {
 		// TODO Auto-generated method stub

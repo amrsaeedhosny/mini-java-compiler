@@ -12,6 +12,13 @@ public class TypeIdentifier1 implements ITypeIdentifier{
 	IIdentifier identifier;
 	ICommaTypeIdentifier commaTypeIdentifier;
 	
+	public TypeIdentifier1(IType type, IIdentifier identifier, ICommaTypeIdentifier commaTypeIdentifier) {
+		super();
+		this.type = type;
+		this.identifier = identifier;
+		this.commaTypeIdentifier = commaTypeIdentifier;
+	}
+
 	@Override
 	public String getValue() {
 		return type.getValue()+identifier.getValue()+commaTypeIdentifier.gtValue();

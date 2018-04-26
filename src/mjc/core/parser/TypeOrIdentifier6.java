@@ -11,6 +11,13 @@ public class TypeOrIdentifier6 implements ITypeOrIdentifier{
 	
 	IIdentifier identifier;
 	IExpressionArgu expressionArgu;
+	
+	public TypeOrIdentifier6(IIdentifier identifier, IExpressionArgu expressionArgu) {
+		super();
+		this.identifier = identifier;
+		this.expressionArgu = expressionArgu;
+	}
+
 	@Override
 	public String getValue() {
 		// TODO Auto-generated method stub

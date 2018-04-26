@@ -7,6 +7,12 @@ public class Statement1 implements IStatement{
 
 	//Statement ::= “{“ Statement` “}”
 	IStatmentPrime statementPrime;
+	
+	public Statement1(IStatmentPrime statementPrime) {
+		super();
+		this.statementPrime = statementPrime;
+	}
+
 	@Override
 	public String getValue() {
 		// TODO Auto-generated method stub

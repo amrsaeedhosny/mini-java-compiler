@@ -9,6 +9,13 @@ public class MethodDeclarationPrime1 implements IMethodDeclarationPrime {
 	IMethodDeclaration methodDeclaration;
 	IMethodDeclarationPrime methodDeclarationPrime;
 	
+	public MethodDeclarationPrime1(IMethodDeclaration methodDeclaration,
+			IMethodDeclarationPrime methodDeclarationPrime) {
+		super();
+		this.methodDeclaration = methodDeclaration;
+		this.methodDeclarationPrime = methodDeclarationPrime;
+	}
+
 	@Override
 	public String getValue() {
 		return methodDeclaration.getValue()+methodDeclarationPrime.getValue();

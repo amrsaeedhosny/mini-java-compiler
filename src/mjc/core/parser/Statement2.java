@@ -12,6 +12,13 @@ public class Statement2 implements IStatement{
 	IStatement statement;
 	IElse Else;
 	
+	public Statement2(IExpression expression, IStatement statement, IElse else1) {
+		super();
+		this.expression = expression;
+		this.statement = statement;
+		Else = else1;
+	}
+
 	@Override
 	public String getValue() {
 		// TODO Auto-generated method stub

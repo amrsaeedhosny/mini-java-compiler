@@ -7,6 +7,15 @@ public class ExpressionPrime1 implements IExpressionPrime{
 	//Expression` ::= ExpressionItems Expression’
 	IExpressionItems expressionItems;
 	IExpressionPrime expressionPrime;
+	
+	
+	public ExpressionPrime1(IExpressionItems expressionItems, IExpressionPrime expressionPrime) {
+		super();
+		this.expressionItems = expressionItems;
+		this.expressionPrime = expressionPrime;
+	}
+
+
 	@Override
 	public String getValue() {
 		// TODO Auto-generated method stub

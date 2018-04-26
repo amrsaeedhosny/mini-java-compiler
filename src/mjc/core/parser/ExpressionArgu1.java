@@ -9,6 +9,13 @@ public class ExpressionArgu1 implements IExpressionArgu{
 	//ExpressionArgu ::= Expression CommaExpressionArgu
 	IExpression expression;
 	ICommaExpressionArgu commaExpressionArgu;
+	
+	public ExpressionArgu1(IExpression expression, ICommaExpressionArgu commaExpressionArgu) {
+		super();
+		this.expression = expression;
+		this.commaExpressionArgu = commaExpressionArgu;
+	}
+
 	@Override
 	public String getValue() {
 		// TODO Auto-generated method stub

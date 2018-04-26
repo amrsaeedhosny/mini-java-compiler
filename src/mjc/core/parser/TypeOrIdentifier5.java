@@ -7,6 +7,11 @@ public class TypeOrIdentifier5 implements ITypeOrIdentifier {
 	// Expression ::= "boolean" “[“ Expression “]”
 	IExpression expression;
 
+	public TypeOrIdentifier5(IExpression expression) {
+		super();
+		this.expression = expression;
+	}
+
 	@Override
 	public String getValue() {
 		// TODO Auto-generated method stub

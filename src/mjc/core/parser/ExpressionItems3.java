@@ -7,6 +7,11 @@ public class ExpressionItems3 implements IExpressionItems {
 	// ExpressionItems::= "==" Expression
 	IExpression expression;
 
+	public ExpressionItems3(IExpression expression) {
+		super();
+		this.expression = expression;
+	}
+
 	@Override
 	public String getValue() {
 		// TODO Auto-generated method stub

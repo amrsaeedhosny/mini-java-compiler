@@ -9,6 +9,11 @@ public class Type1 implements IType{
 	
 	IBrackets brackets;
 	
+	public Type1(IBrackets brackets) {
+		super();
+		this.brackets = brackets;
+	}
+
 	@Override
 	public String getValue() {
 		// TODO Auto-generated method stub

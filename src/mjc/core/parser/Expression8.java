@@ -4,9 +4,12 @@ import mjc.core.parser.interfaces.IExpression;
 import mjc.core.parser.interfaces.ITypeOrIdentifier;
 
 public class Expression8 implements IExpression {
-
 	// Expression ::= “!” Expression Expression
 	IExpression expression;
+
+	public Expression8(IExpression expression) {
+		this.expression = expression;
+	}
 
 	@Override
 	public String getValue() {

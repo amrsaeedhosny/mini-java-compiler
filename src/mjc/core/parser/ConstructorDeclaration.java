@@ -7,7 +7,6 @@ import mjc.core.parser.interfaces.ITypeIdentifier;
 import mjc.core.parser.interfaces.IVarDeclarationPrime;
 
 public class ConstructorDeclaration implements IConstructorDeclaration{
-
 //  ConstructorDeclatation ::= Identifier
 //	“(“ TypeIdentifier “)”
 //	“{“ VarDeclaration` Statement` “}”
@@ -17,6 +16,16 @@ public class ConstructorDeclaration implements IConstructorDeclaration{
 	IVarDeclarationPrime varDeclarationPrime;
 	IStatmentPrime statmentPrime;
 	
+	
+	public ConstructorDeclaration(IIdentifier identifier, ITypeIdentifier typeIdentifier,
+			IVarDeclarationPrime varDeclarationPrime, IStatmentPrime statmentPrime) {
+		this.identifier = identifier;
+		this.typeIdentifier = typeIdentifier;
+		this.varDeclarationPrime = varDeclarationPrime;
+		this.statmentPrime = statmentPrime;
+	}
+
+
 	@Override
 	public String getValue() {
 		return identifier.getValue()+"("+typeIdentifier.getValue()+")"+"{"+varDeclarationPrime.getValue()+
