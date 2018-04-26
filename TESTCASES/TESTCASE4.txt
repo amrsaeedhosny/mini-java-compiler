@@ -1,0 +1,17 @@
+'5'
+'\''
+'\\'
+'''
+// "q" /* */
+/* //"/*a*/"
+
+*/
+
+/* 
+hello dear
+*/
+
+int x3.4 = "hello";
+
+public static complex _number = news complex(); //Default constructor
+bool flag = true;
