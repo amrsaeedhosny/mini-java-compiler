@@ -1,19 +1,21 @@
 package mjc.core.parser;
 
 import mjc.core.parser.interfaces.IExpression;
-import mjc.core.parser.interfaces.ITypeOrIdentifier;
+import mjc.core.parser.interfaces.IExpressionPrime;
 
 public class Expression8 implements IExpression {
-	// Expression ::= “!” Expression Expression
+	// Expression ::= “!” Expression Expression`
 	IExpression expression;
+	IExpressionPrime expressionPrime;
 
-	public Expression8(IExpression expression) {
+	public Expression8(IExpression expression, IExpressionPrime expressionPrime) {
 		this.expression = expression;
+		this.expressionPrime = expressionPrime;
 	}
 
 	@Override
 	public String getValue() {
 		// TODO Auto-generated method stub
-		return "!"+expression.getValue()+ expression.getValue();
+		return "!" + expression.getValue() + expressionPrime.getValue();
 	}
 }
