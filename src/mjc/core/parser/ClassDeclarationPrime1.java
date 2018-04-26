@@ -8,6 +8,12 @@ public class ClassDeclarationPrime1 implements IClassDeclarationPrime {
 	IClassDeclaration classDeclaration;
 	IClassDeclarationPrime classDeclarationPrime;
 
+	public ClassDeclarationPrime1(IClassDeclaration classDeclaration,
+			IClassDeclarationPrime classDeclarationPrime) {
+		this.classDeclaration = classDeclaration;
+		this.classDeclarationPrime = classDeclarationPrime;
+	}
+
 	@Override
 	public String getValue() {
 		return classDeclaration.getValue() + classDeclarationPrime.getValue();

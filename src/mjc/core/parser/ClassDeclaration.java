@@ -18,7 +18,16 @@ public class ClassDeclaration implements IClassDeclaration {
 	IVarDeclarationPrime varDeclarationPrime;
 	IConstructorDeclarationPrime constructorDeclarationPrime;
 	IMethodDeclarationPrime methodDeclarartionPrime;
-	
+
+	public ClassDeclaration(IIdentifier identifier, IExtendsPrime extendsPrime,
+			IVarDeclarationPrime varDeclarationPrime, IConstructorDeclarationPrime constructorDeclarationPrime,
+			IMethodDeclarationPrime methodDeclarartionPrime) {
+		this.identifier = identifier;
+		this.extendsPrime = extendsPrime;
+		this.varDeclarationPrime = varDeclarationPrime;
+		this.constructorDeclarationPrime = constructorDeclarationPrime;
+		this.methodDeclarartionPrime = methodDeclarartionPrime;
+	}
 
 	@Override
 	public String getValue() {

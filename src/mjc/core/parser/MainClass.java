@@ -12,8 +12,15 @@ public class MainClass implements IMainClass {
 	
 	IIdentifier identifierClassName;
 	IIdentifier identifierMainArg;
-	IStatement statement;
-	
+	IStatement statement;	
+
+	public MainClass(IIdentifier identifierClassName,
+			IIdentifier identifierMainArg, IStatement statement) {
+		this.identifierClassName = identifierClassName;
+		this.identifierMainArg = identifierMainArg;
+		this.statement = statement;
+	}
+
 
 	@Override
 	public String getValue() {

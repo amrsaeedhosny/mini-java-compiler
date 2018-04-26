@@ -8,6 +8,10 @@ public class ExtendsPrime1 implements IExtendsPrime {
 	
 	IIdentifier identifier;
 
+	public ExtendsPrime1(IIdentifier identifier) {
+		this.identifier = identifier;
+	}
+
 	@Override
 	public String getValue() {
 		return "extends" + identifier.getValue();
