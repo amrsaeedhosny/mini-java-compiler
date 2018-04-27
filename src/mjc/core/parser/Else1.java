@@ -15,7 +15,7 @@ public class Else1 implements IElse{
 	@Override
 	public String geetValue() {
 		// TODO Auto-generated method stub
-		return "else"+statement.getValue();
+		return "else"+(statement!=null? statement.getValue(): "statement==null");
 	}
 
 }

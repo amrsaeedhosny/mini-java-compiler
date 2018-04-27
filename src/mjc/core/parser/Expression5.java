@@ -17,6 +17,6 @@ public class Expression5 implements IExpression {
 	@Override
 	public String getValue() {
 		// TODO Auto-generated method stub
-		return identifier.getValue() + expressionPrime.getValue();
+		return (identifier!=null? identifier.getValue(): "identifier==null") + (expressionPrime!=null? expressionPrime.getValue(): "expressionPrime==null");
 	}
 }

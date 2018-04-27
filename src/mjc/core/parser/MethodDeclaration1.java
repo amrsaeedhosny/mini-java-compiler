@@ -31,13 +31,13 @@ public class MethodDeclaration1 implements IMethodDeclaration {
 		this.statmentPrime = statmentPrime;
 		this.expression = expression;
 	}
-
+   
 
 	@Override
 	public String getValue() {
-		return "public"+type.getValue()+identifier.getValue()+"("+typeIdentifier.getValue()+
-				")"+"{"+varDeclarationPrime.getValue()+statmentPrime.getValue()+
-				"return"+expression.getValue()+";"+"}";
+		return "public"+(type!=null? type.getValue(): "type==null")+(identifier!=null? identifier.getValue(): "identifier==null")+"("+(typeIdentifier!=null? typeIdentifier.getValue(): "typeIdentifier==null")+
+				")"+"{"+(varDeclarationPrime!=null? varDeclarationPrime.getValue(): "varDeclarationPrime==null")+(statmentPrime!=null? statmentPrime.getValue(): "statmentPrime==null")+
+				"return"+(expression!=null? expression.getValue(): "expression==null")+";"+"}";
 	}
 
 }

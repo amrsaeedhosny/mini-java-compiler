@@ -20,7 +20,7 @@ public class Statement5 implements IStatement{
 	@Override
 	public String getValue() {
 		// TODO Auto-generated method stub
-		return identifier.getValue()+equalOrBracketExpression.getValue();
+		return (identifier!=null? identifier.getValue(): "identifier=null")+(equalOrBracketExpression!=null? equalOrBracketExpression.getValue(): "equalOrBracketExpression==null");
 	}
 
 }

@@ -16,7 +16,7 @@ public class Statement1 implements IStatement{
 	@Override
 	public String getValue() {
 		// TODO Auto-generated method stub
-		return "{"+statementPrime.getValue()+"}";
+		return "{"+(statementPrime!=null? statementPrime.getValue(): "statementPrime==null")+"}";
 	}
 
 }

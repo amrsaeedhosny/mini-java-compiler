@@ -17,7 +17,7 @@ public class Type5 implements IType{
 	@Override
 	public String getValue() {
 		// TODO Auto-generated method stub
-		return "char"+brackets.getValue();
+		return "char"+(brackets!=null? brackets.getValue(): "brackets==null");
 	}
 
 }

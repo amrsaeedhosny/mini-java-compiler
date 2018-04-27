@@ -17,7 +17,7 @@ public class Type2 implements IType{
 	@Override
 	public String getValue() {
 		// TODO Auto-generated method stub
-		return "boolean"+brackets.getValue();
+		return "boolean"+(brackets!=null? brackets.getValue(): "brackets==null");
 	}
 
 }

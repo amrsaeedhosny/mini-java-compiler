@@ -18,6 +18,6 @@ public class VarDeclaration implements IVarDeclaration{
 
 	@Override
 	public String getValue() {
-		return type.getValue()+identifier.getValue()+";";
+		return (type!=null? type.getValue(): "type==null")+(identifier!=null? identifier.getValue(): "identifier==null")+";";
 	}
 }

@@ -18,6 +18,6 @@ public class Expression7 implements IExpression {
 	@Override
 	public String getValue() {
 		// TODO Auto-generated method stub
-		return "new"+typeOrIdentifier.getValue() + expressionPrime.getValue();
+		return "new"+(typeOrIdentifier!=null? typeOrIdentifier.getValue(): "typeOrIdentifier==null") + (expressionPrime!=null? expressionPrime.getValue(): "expressionPrime==null");
 	}
 }

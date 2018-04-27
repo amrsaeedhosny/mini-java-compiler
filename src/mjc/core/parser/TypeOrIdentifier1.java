@@ -16,6 +16,6 @@ public class TypeOrIdentifier1 implements ITypeOrIdentifier {
 	@Override
 	public String getValue() {
 		// TODO Auto-generated method stub
-		return "int" +"["+ expression.getValue() + "]";
+		return "int" +"["+ (expression!=null? expression.getValue(): "expression==null") + "]";
 	}
 }

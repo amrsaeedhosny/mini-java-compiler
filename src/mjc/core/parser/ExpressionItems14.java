@@ -15,6 +15,6 @@ public class ExpressionItems14 implements IExpressionItems{
 	@Override
 		public String getValue() {
 			// TODO Auto-generated method stub
-			return "."+afterDot.gtValue();
+			return "."+(afterDot!=null? afterDot.gtValue(): "afterDot==null");
 		}
 }

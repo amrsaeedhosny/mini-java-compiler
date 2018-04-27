@@ -14,6 +14,6 @@ public class Expression4 implements IExpression {
 	@Override
 	public String getValue() {
 		// TODO Auto-generated method stub
-		return "false" + expressionPrime.getValue();
+		return "false" + (expressionPrime!=null? expressionPrime.getValue(): "expressionPrime==null");
 	}
 }

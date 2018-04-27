@@ -17,7 +17,7 @@ public class Type3 implements IType{
 	@Override
 	public String getValue() {
 		// TODO Auto-generated method stub
-		return "float"+brackets.getValue();
+		return "float"+(brackets!=null? brackets.getValue(): "brackets==null");
 	}
 
 }
