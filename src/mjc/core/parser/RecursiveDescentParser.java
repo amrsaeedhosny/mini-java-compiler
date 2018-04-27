@@ -18,11 +18,13 @@ public class RecursiveDescentParser {
 
 	/**
 	 * A method to prepare refine the tokens list for parsing
-	 * @param tokens tokens after refining
+	 * 
+	 * @param tokens
+	 *            tokens after refining
 	 * @return
 	 */
 	private ArrayList<Token> refine(ArrayList<Token> tokens) {
-		for (int i = 0; i< tokens.size(); i++) {
+		for (int i = 0; i < tokens.size(); i++) {
 			Token t = tokens.get(i);
 			if (t.type.equals(Token.EOL_TOKEN_TYPE)) {
 				// remove EOL tokens from the tokens list
@@ -30,35 +32,37 @@ public class RecursiveDescentParser {
 				i--;
 			}
 		}
-//		printCodeTokens(tokens);
+		// printCodeTokens(tokens);
 		return tokens;
 	}
-	
+
 	private static void printCodeTokens(ArrayList<Token> matchedTokens) {
 		System.out.println("----------------------------- Matched Code Tokens ----------------------------");
-		for (Token token: matchedTokens) {
+		for (Token token : matchedTokens) {
 			String tokenLabel = token.getType();
 			String tokenValue = token.getValue();
 			if (tokenLabel.equals("EOL")) {
 				tokenValue = "ENDOFLINE";
 			}
 			if (tokenLabel.equals(Token.UNKNOWN_TOKEN_TYPE)) {
-				System.out.println("ERROR "+ "< "+ tokenLabel +" > : " +" '" + tokenValue + "' This token did not match any RE @ index " + token.getStartIndex());
+				System.out.println("ERROR " + "< " + tokenLabel + " > : " + " '" + tokenValue
+						+ "' This token did not match any RE @ index " + token.getStartIndex());
+			} else {
+				System.out.println("< " + tokenLabel + " > : " + "-" + tokenValue + "-");
 			}
-			else {
-				System.out.println("< "+ tokenLabel +" > : "+ "-" + tokenValue + "-");
-			}
-			
+
 		}
 		System.out.println("---------------------------------------------------------------------");
 	}
 
+	// Ahmed : Error Here When lookahead = EOF
 	private void nextToken() {
 		if (!codeTokens.isEmpty()) { // null safety
 			codeTokens.remove(0);
 		}
 
 		// at the end of input we return an EOF token
+		// Error is here
 		if (codeTokens.isEmpty())
 			lookahead = new Token(Token.EOF_TOKEN_TYPE, "\n");
 		else
@@ -106,7 +110,6 @@ public class RecursiveDescentParser {
 		return new Goal(mainClass, classDeclarationPrime);
 	}
 
-
 	private IClassDeclarationPrime classDeclarationPrime() {
 		// ClassDeclaration` ::= ClassDeclaration ClassDeclaration` | lambda
 
@@ -118,7 +121,7 @@ public class RecursiveDescentParser {
 		IClassDeclarationPrime classDeclarationPrime = classDeclarationPrime();
 		// Why didn't check if classDeclarationPrime == null ???
 		// Ans: This function can never return null
-		
+
 		return new ClassDeclarationPrime1(classDeclaration, classDeclarationPrime);
 	}
 
@@ -311,6 +314,7 @@ public class RecursiveDescentParser {
 
 	private IVarDeclarationPrime varDeclarationPrime() {
 		// VarDeclaration` ::= VarDeclaration VarDeclaration` | λ
+
 		IVarDeclaration varDeclaration = varDeclaration();
 		if (varDeclaration == null) {
 			return new VarDeclarationPrime2();
@@ -326,6 +330,7 @@ public class RecursiveDescentParser {
 
 	private IVarDeclaration varDeclaration() {
 		// VarDeclaration ::= Type Identifier “;”
+
 		IType type = type();
 		if (type == null) {
 			printSyntaxError("varDeclaration(): type == null");
@@ -356,6 +361,7 @@ public class RecursiveDescentParser {
 			printSyntaxError(lookahead, "Data Type");
 			return null;
 		}
+		nextToken();
 
 		IBrackets brackets = brackets();
 		if (brackets == null) {
@@ -551,7 +557,7 @@ public class RecursiveDescentParser {
 
 		return new MethodDeclarationPrime1(methodDeclaration, methodDeclarationPrime);
 	}
-	
+
 	private IMethodDeclaration methodDeclaration() {
 		/*
 		 * MethodDeclaration ::= (“public” | “private | “protected”) Type Identifier “(“
@@ -654,6 +660,7 @@ public class RecursiveDescentParser {
 		// | “true” | “false” | Identifier | “this” | “new” TypeOrIdentifier
 		// | “!” Expression | “(“ Expression “)” ) Expression`
 
+		Token temp = lookahead;
 		if (lookahead.getType().equals("INTEGRAL_LITERAL")) {
 			nextToken();
 			IExpressionPrime expressionPrime = expressionPrime();
@@ -749,7 +756,7 @@ public class RecursiveDescentParser {
 				return null;
 			}
 
-			if (lookahead.getValue().equals(")")) {
+			if (!lookahead.getValue().equals(")")) {
 				printSyntaxError(lookahead, ")");
 				return null;
 			}
@@ -762,23 +769,24 @@ public class RecursiveDescentParser {
 			}
 
 			return new Expression9(expression, expressionPrime);
-		}
+		} else if (identifier() != null) {
+			IIdentifier identifier = identifier();
 
+			IExpressionPrime expressionPrime = expressionPrime();
+			if (expressionPrime == null) {
+				printSyntaxError("expression(): expressionPrime == null");
+				return null;
+			}
+
+			return new Expression5(expressionPrime, identifier);
+		}
+		lookahead = temp;
 		// here is the problem, I don't know how to fix it :(
 		// this same problem occurs again in many places in code
-		IIdentifier identifier = identifier();
-		if (identifier == null) {
-			printSyntaxError("expression(): identifier == null");
-			return null;
-		}
 
-		IExpressionPrime expressionPrime = expressionPrime();
-		if (expressionPrime == null) {
-			printSyntaxError("expression(): expressionPrime == null");
-			return null;
-		}
+		// Ans: I have Fix it :)
 
-		return new Expression5(expressionPrime, identifier);
+		return null;
 	}
 
 	private ITypeOrIdentifier typeOrIdentifier() {
@@ -787,7 +795,7 @@ public class RecursiveDescentParser {
 		// | Identifier “(“ ExpressionArgu “)”
 
 		String dataType = lookahead.getValue();
-		
+
 		// Abdallah: replaced || with &&
 		if (!dataType.equals("int") && !dataType.equals("boolean") && !dataType.equals("float")
 				&& !dataType.equals("String") && !dataType.equals("char")) {
@@ -914,8 +922,7 @@ public class RecursiveDescentParser {
 			nextToken();
 
 			return new Statement1(statmentPrime);
-		}
-		else if (lookahead.getValue().equals("if")) {
+		} else if (lookahead.getValue().equals("if")) {
 			// “if” “(“ Expression “)” Statement Else
 			nextToken();
 
@@ -950,8 +957,7 @@ public class RecursiveDescentParser {
 			}
 
 			return new Statement2(expression, statement, else1);
-		}
-		else if (lookahead.getValue().equals("while")) {
+		} else if (lookahead.getValue().equals("while")) {
 			// “while” “(“ Expression “)” Statement
 			nextToken();
 
@@ -981,8 +987,7 @@ public class RecursiveDescentParser {
 
 			return new Statement3(expression, statement);
 
-		}
-		else if (lookahead.type.equals(Token.SYSOUT_TOKEN_TYPE)) {
+		} else if (lookahead.type.equals(Token.SYSOUT_TOKEN_TYPE)) {
 			// “System.out.println” “(“ Expression “)” “;”
 			nextToken();
 
@@ -1012,8 +1017,7 @@ public class RecursiveDescentParser {
 
 			return new Statement4(expression);
 
-		}
-		else {
+		} else {
 			// Identifier EqualOrBracketExpression
 			IIdentifier identifier = identifier();
 			if (!(identifier == null)) {
@@ -1026,7 +1030,7 @@ public class RecursiveDescentParser {
 			}
 			printSyntaxError("statement(): identifier == null");
 			return null;
-		}		
+		}
 	}
 
 	private IEqualOrBracketExpression equalOrBracketExpression() {
@@ -1085,8 +1089,7 @@ public class RecursiveDescentParser {
 			nextToken();
 
 			return new EqualOrBracketExpression2(expression1, expression2);
-		}
-		else {
+		} else {
 			printSyntaxError("equalOrBracketExpression():");
 			return null;
 		}
@@ -1127,7 +1130,8 @@ public class RecursiveDescentParser {
 	}
 
 	private IExpressionItems expressionItems() {
-		// ExpressionItems::= ("&&" | "||" | "==" | "!=" | ">" | "<" | "<=" | ">=" | "+" | "-" | "*" | "/" ) Expression
+		// ExpressionItems::= ("&&" | "||" | "==" | "!=" | ">" | "<" | "<=" | ">=" | "+"
+		// | "-" | "*" | "/" ) Expression
 		// | "[" Expression "]"
 		// | “.” AfterDot
 
@@ -1148,8 +1152,7 @@ public class RecursiveDescentParser {
 			nextToken();
 
 			return new ExpressionItems13(expression);
-		}
-		else if (lookahead.getValue().equals(".")) {
+		} else if (lookahead.getValue().equals(".")) {
 			// “.” AfterDot
 			nextToken();
 
@@ -1160,13 +1163,13 @@ public class RecursiveDescentParser {
 			}
 
 			return new ExpressionItems14(afterDot);
-		}
-		else {
+		} else {
 			String operator = lookahead.getValue();
 			// Abdallah: replaced || with &&
 			if (!operator.equals("&&") && !operator.equals("||") && !operator.equals("==") && !operator.equals("!=")
-					&& !operator.equals(">") && !operator.equals("<") && !operator.equals("<=") && !operator.equals(">=")
-					&& !operator.equals("+") && !operator.equals("-") && !operator.equals("*") && !operator.equals("/")) {
+					&& !operator.equals(">") && !operator.equals("<") && !operator.equals("<=")
+					&& !operator.equals(">=") && !operator.equals("+") && !operator.equals("-") && !operator.equals("*")
+					&& !operator.equals("/")) {
 				printSyntaxError("expressionItems(): No Operator");
 				return null;
 			}
@@ -1215,7 +1218,7 @@ public class RecursiveDescentParser {
 			return new AfterDot1();
 		}
 		// Abdallah: Why the nextToken() below??
-//		nextToken();
+		// nextToken();
 
 		IIdentifier identifier = identifier();
 		if (identifier == null) {
@@ -1223,7 +1226,7 @@ public class RecursiveDescentParser {
 			return null;
 		}
 
-		if (lookahead.getValue().equals("(")) {
+		if (!lookahead.getValue().equals("(")) {
 			printSyntaxError(lookahead, "(");
 			return null;
 		}
@@ -1235,7 +1238,7 @@ public class RecursiveDescentParser {
 			return null;
 		}
 
-		if (lookahead.getValue().equals(")")) {
+		if (!lookahead.getValue().equals(")")) {
 			printSyntaxError(lookahead, ")");
 			return null;
 		}
@@ -1246,6 +1249,7 @@ public class RecursiveDescentParser {
 
 	private IIdentifier identifier() {
 		// Identifier ::= <IDENTIFIER>
+
 		if (!lookahead.type.equals("ID")) {
 			printSyntaxError(lookahead, "<IDENTIFIER>");
 			return null;
