@@ -15,6 +15,6 @@ public class TypeOrIdentifier5 implements ITypeOrIdentifier {
 	@Override
 	public String getValue() {
 		// TODO Auto-generated method stub
-		return "boolean" + "[" + expression.getValue() + "]";
+		return "boolean" + "[" + (expression!=null? expression.getValue(): "expression==null") + "]";
 	}
 }

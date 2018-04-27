@@ -21,7 +21,7 @@ public class TypeIdentifier1 implements ITypeIdentifier{
 
 	@Override
 	public String getValue() {
-		return type.getValue()+identifier.getValue()+commaTypeIdentifier.gtValue();
+		return (type!=null? type.getValue(): "type==null")+(identifier!=null? identifier.getValue(): "identifier==null")+(commaTypeIdentifier!=null? commaTypeIdentifier.getValue(): "commaTypeIdentifier==null");
 	}
 
 	

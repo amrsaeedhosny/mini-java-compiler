@@ -22,7 +22,7 @@ public class Statement2 implements IStatement{
 	@Override
 	public String getValue() {
 		// TODO Auto-generated method stub
-		return "if"+"("+expression.getValue()+")"+statement.getValue()+Else.geetValue();
+		return "if"+"("+(expression!=null? expression.getValue(): "expression==null")+")"+(statement!=null? statement.getValue(): "statement==null")+(Else!=null? Else.geetValue(): "Else==null");
 	}
 
 }

@@ -17,6 +17,7 @@ public class AfterDot2 implements IAfterDot {
 	@Override
 	public String gtValue() {
 		// TODO Auto-generated method stub
-		return identifier.getValue()+"("+expressionArgu.getValue()+")";
+		return (identifier!=null? identifier.getValue(): "identifier==null")+"("+
+				(expressionArgu!=null? expressionArgu.getValue():"expressionArgu==null")+")";
 	}
 }

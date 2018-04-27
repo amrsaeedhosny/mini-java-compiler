@@ -28,8 +28,8 @@ public class ConstructorDeclaration implements IConstructorDeclaration{
 
 	@Override
 	public String getValue() {
-		return identifier.getValue()+"("+typeIdentifier.getValue()+")"+"{"+varDeclarationPrime.getValue()+
-				statmentPrime.getValue()+"}";
+		return (identifier!=null? identifier.getValue(): "identifier==null")+"("+(typeIdentifier!=null? typeIdentifier.getValue(): "typeIdentifier==null")+")"+"{"+(varDeclarationPrime!=null? varDeclarationPrime.getValue(): "varDeclarationPrime==null")+
+				(statmentPrime!=null? statmentPrime.getValue(): "statmentPrime==null")+"}";
 	}
 
 }

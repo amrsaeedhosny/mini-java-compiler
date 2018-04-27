@@ -18,7 +18,7 @@ public class StatementPrime1 implements IStatmentPrime{
 
 	@Override
 	public String getValue() {
-		return statment.getValue()+statementPrime.getValue();
+		return (statment!=null? statment.getValue(): "statment==null")+(statementPrime!=null? statementPrime.getValue(): "statementPrime==null");
 	}
 
 }

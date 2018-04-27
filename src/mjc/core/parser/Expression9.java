@@ -16,6 +16,6 @@ public class Expression9 implements IExpression {
 	@Override
 	public String getValue() {
 		// TODO Auto-generated method stub
-		return "(" + expression.getValue() + ")" + expressionPrime.getValue();
+		return "(" + (expression!=null? expression.getValue(): "expression==null") + ")" + (expressionPrime!=null? expressionPrime.getValue(): "expressionPrime==null");
 	}
 }

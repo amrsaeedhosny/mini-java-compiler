@@ -33,8 +33,8 @@ public class MethodDeclaration3 implements IMethodDeclaration {
 
 	@Override
 	public String getValue() {
-		return "protected" + type.getValue() + identifier.getValue() + "(" + typeIdentifier.getValue() + ")" + "{"
-				+ varDeclarationPrime.getValue() + statmentPrime.getValue() + "return" + expression.getValue() + ";"
+		return "protected" + (type!=null? type.getValue(): "type==null") + (identifier!=null? identifier.getValue(): "identifier==null") + "(" + (identifier!=null? identifier.getValue(): "identifier==null")+"("+(typeIdentifier!=null? typeIdentifier.getValue(): "typeIdentifier==null") + ")" + "{"
+				+ (varDeclarationPrime!=null? varDeclarationPrime.getValue(): "varDeclarationPrime==null") +(statmentPrime!=null? statmentPrime.getValue(): "statmentPrime==null") + "return" + (expression!=null? expression.getValue(): "expression==null") + ";"
 				+ "}";
 	}
 

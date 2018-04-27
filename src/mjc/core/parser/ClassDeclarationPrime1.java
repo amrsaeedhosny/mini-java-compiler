@@ -16,7 +16,7 @@ public class ClassDeclarationPrime1 implements IClassDeclarationPrime {
 
 	@Override
 	public String getValue() {
-		return classDeclaration.getValue() + classDeclarationPrime.getValue();
+		return (classDeclaration!=null? classDeclaration.getValue(): "classDeclaration==null") + (classDeclarationPrime!=null? classDeclarationPrime.getValue():"classDeclarationPrime==null");
 	}
 
 }

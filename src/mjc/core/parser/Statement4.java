@@ -17,7 +17,7 @@ public class Statement4 implements IStatement{
 	@Override
 	public String getValue() {
 		// TODO Auto-generated method stub
-		return "System.out.println"+"("+expression.getValue()+")"+";";
+		return "System.out.println"+"("+(expression!=null? expression.getValue(): "expression==null")+")"+";";
 	}
 
 }
