@@ -18,7 +18,8 @@ public class MethodDeclarationPrime1 implements IMethodDeclarationPrime {
 
 	@Override
 	public String getValue() {
-		return (methodDeclaration!=null? methodDeclaration.getValue(): "methodDeclaration==null")+(methodDeclarationPrime!=null? methodDeclarationPrime.getValue(): "methodDeclarationPrime==null");
+		return (methodDeclaration!=null? methodDeclaration.getValue(): "methodDeclaration==null")
+			+ (methodDeclarationPrime!=null? methodDeclarationPrime.getValue(): "methodDeclarationPrime==null");
 	}
 
 }

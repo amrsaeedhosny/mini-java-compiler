@@ -4,7 +4,6 @@ import mjc.core.parser.interfaces.IBrackets;
 import mjc.core.parser.interfaces.IType;
 
 public class Type1 implements IType{
-
 	//Type ::="int" Brackets
 	
 	IBrackets brackets;
@@ -16,8 +15,7 @@ public class Type1 implements IType{
 
 	@Override
 	public String getValue() {
-		// TODO Auto-generated method stub
-		return "int"+(brackets!=null? brackets.getValue(): "brackets==null");
+		return "int "+(brackets!=null? brackets.getValue(): "brackets==null");
 	}
 
 }

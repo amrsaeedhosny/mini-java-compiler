@@ -19,7 +19,8 @@ public class ConstructorDeclarationPrime1 implements IConstructorDeclarationPrim
 
 	@Override
 	public String getValue() {
-		return (constructorDeclaration!=null? constructorDeclaration.getValue(): "constructorDeclaration==null") + (constructorDeclarationPrime!=null? constructorDeclarationPrime.getValue(): "constructorDeclarationPrime==null");
+		return (constructorDeclaration!=null? constructorDeclaration.getValue(): "constructorDeclaration==null") 
+				+ (constructorDeclarationPrime!=null? constructorDeclarationPrime.getValue(): "constructorDeclarationPrime==null");
 	}
 
 }

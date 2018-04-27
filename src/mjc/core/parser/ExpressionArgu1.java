@@ -18,9 +18,8 @@ public class ExpressionArgu1 implements IExpressionArgu{
 
 	@Override
 	public String getValue() {
-		// TODO Auto-generated method stub
-		return (expression!=null? expression.getValue(): "expression=null")+(
-				commaExpressionArgu!=null? commaExpressionArgu.getValue(): "commaExpressionArgu==null");
+		return (expression!=null? expression.getValue(): "expression=null") +
+			(commaExpressionArgu!=null? commaExpressionArgu.getValue(): "commaExpressionArgu==null");
 	}
 
 }

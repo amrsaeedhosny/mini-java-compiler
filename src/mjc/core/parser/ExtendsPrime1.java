@@ -14,7 +14,7 @@ public class ExtendsPrime1 implements IExtendsPrime {
 
 	@Override
 	public String getValue() {
-		return "extends" + (identifier!=null? identifier.getValue():"identifier==null");
+		return "extends " + (identifier!=null? identifier.getValue():"identifier==null");
 	}
 
 }

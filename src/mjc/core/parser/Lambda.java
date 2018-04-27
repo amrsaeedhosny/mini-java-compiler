@@ -5,7 +5,8 @@ public final class Lambda {
 	private Lambda() {}
 	
 	public static String getValue() {
-		return "<LAMBDA>";
+//		return "<LAMBDA>";
+		return "";
 	}
 	
 

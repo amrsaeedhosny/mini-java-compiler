@@ -2,5 +2,5 @@ package mjc.core.parser.interfaces;
 
 public interface IElse {
 
-	public String geetValue();
+	public String getValue();
 }

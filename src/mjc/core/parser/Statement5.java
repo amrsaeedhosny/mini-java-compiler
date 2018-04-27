@@ -19,8 +19,8 @@ public class Statement5 implements IStatement{
 
 	@Override
 	public String getValue() {
-		// TODO Auto-generated method stub
-		return (identifier!=null? identifier.getValue(): "identifier=null")+(equalOrBracketExpression!=null? equalOrBracketExpression.getValue(): "equalOrBracketExpression==null");
+		return "\n" + (identifier!=null? identifier.getValue(): "identifier=null") 
+			+ (equalOrBracketExpression!=null? equalOrBracketExpression.getValue(): "equalOrBracketExpression==null");
 	}
 
 }

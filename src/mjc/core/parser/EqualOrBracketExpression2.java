@@ -16,8 +16,9 @@ public class EqualOrBracketExpression2 implements IEqualOrBracketExpression {
 
 	@Override
 	public String getValue() {
-		// TODO Auto-generated method stub
-		return "[" + (expression1!=null? expression1.getValue(): "expression1==null") + "]" + "=" + (expression2!=null? expression2.getValue(): "expression2==null") + ";";
+		return "[" + (expression1!=null? expression1.getValue(): "expression1==null") 
+			+ "]" + " = " 
+			+ (expression2!=null? expression2.getValue(): "expression2==null") + ";";
 	}
 
 }

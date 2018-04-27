@@ -18,7 +18,9 @@ public class Goal implements IGoal {
 
 	@Override
 	public String getValue() {
-		return (mainClass!=null? mainClass.getValue(): "mainClass==null") + (classDeclarationPrime!=null? classDeclarationPrime.getValue(): "classDeclarationPrime==null") + Token.EOF_TOKEN_TYPE;
+		return (mainClass!=null? mainClass.getValue(): "mainClass==null") 
+				+ (classDeclarationPrime!=null? classDeclarationPrime.getValue(): "classDeclarationPrime==null") 
+				+ "\n" + Token.EOF_TOKEN_TYPE;
 	}
 
 }

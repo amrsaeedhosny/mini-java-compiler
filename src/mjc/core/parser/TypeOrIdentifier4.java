@@ -14,7 +14,6 @@ public class TypeOrIdentifier4 implements ITypeOrIdentifier {
 
 	@Override
 	public String getValue() {
-		// TODO Auto-generated method stub
-		return "char" + "[" + (expression!=null? expression.getValue(): "expression==null") + "]";
+		return "char " + "[" + (expression!=null? expression.getValue(): "expression==null") + "]";
 	}
 }

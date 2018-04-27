@@ -24,9 +24,10 @@ public class MainClass implements IMainClass {
 
 	@Override
 	public String getValue() {
-		return "class" + (identifierClassName!=null? identifierClassName.getValue(): "identifierClassName==null") + 
-				"{public static void main(String []" + (identifierMainArg!=null? identifierMainArg.getValue(): "identifierMainArg==null")
-				+ ") {" + (statement!=null? statement.getValue(): "statement==null") + "} }";
+		return "class "
+				+ (identifierClassName!=null? identifierClassName.getValue(): "identifierClassName==null") 
+				+ "{\npublic static void main(String [] " + (identifierMainArg!=null? identifierMainArg.getValue(): "identifierMainArg==null")
+				+ ") {\n" + (statement!=null? statement.getValue(): "statement==null") + "}\n}";
 	}
 
 }

@@ -18,7 +18,6 @@ public class ExpressionPrime1 implements IExpressionPrime{
 
 	@Override
 	public String getValue() {
-		// TODO Auto-generated method stub
 		return (expressionItems!=null? expressionItems.getValue(): "expressionItems==null")+(expressionPrime!=null? expressionPrime.getValue(): "expressionPrime==null");
 	}
 

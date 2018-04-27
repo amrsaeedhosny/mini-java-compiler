@@ -13,8 +13,7 @@ public class EqualOrBracketExpression1 implements IEqualOrBracketExpression{
 
 	@Override
 	public String getValue() {
-		// TODO Auto-generated method stub
-		return "="+(expression!=null? expression.getValue(): "expression==null")+";";
+		return " = "+(expression!=null? expression.getValue(): "expression==null")+";";
 	}
 
 }

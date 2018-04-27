@@ -18,8 +18,9 @@ public class Statement3 implements IStatement{
 
 	@Override
 	public String getValue() {
-		// TODO Auto-generated method stub
-		return "while"+"("+(expression!=null? expression.getValue(): "expression==null")+")"+(statement!=null? statement.getValue(): "statement==null");
+		return "\nwhile " + "(" 
+			+ (expression!=null? expression.getValue(): "expression==null")+ ")" 
+			+ (statement!=null? statement.getValue(): "statement==null");
 	}
 
 }

@@ -17,6 +17,7 @@ public class VarDeclarationPrime1 implements IVarDeclarationPrime{
 
 	@Override
 	public String getValue() {
-		return (varDeclaration!=null? varDeclaration.getValue(): "varDeclaration==null")+(varDeclarationPrime!=null? varDeclarationPrime.getValue(): "varDeclarationPrime==null");
+		return (varDeclaration!=null? varDeclaration.getValue(): "varDeclaration==null")
+			+ (varDeclarationPrime!=null? varDeclarationPrime.getValue(): "varDeclarationPrime==null");
 	}
 }

@@ -21,8 +21,10 @@ public class Statement2 implements IStatement{
 
 	@Override
 	public String getValue() {
-		// TODO Auto-generated method stub
-		return "if"+"("+(expression!=null? expression.getValue(): "expression==null")+")"+(statement!=null? statement.getValue(): "statement==null")+(Else!=null? Else.geetValue(): "Else==null");
+		return "\nif "+"("
+			+ (expression!=null? expression.getValue(): "expression==null")+")"
+			+ (statement!=null? statement.getValue(): "statement==null")
+			+ (Else!=null? Else.getValue(): "Else==null");
 	}
 
 }

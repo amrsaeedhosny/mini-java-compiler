@@ -17,8 +17,8 @@ public class CommaExpressionArgu1 implements ICommaExpressionArgu{
 
 	@Override
 	public String getValue() {
-		// TODO Auto-generated method stub
-		return ","+(expression!=null? expression.getValue(): "expression==null")+(commaExpressionArgu!=null? commaExpressionArgu.getValue(): "commaExpressionArgu==null");
+		return ", "+(expression!=null? expression.getValue(): "expression==null")
+			+ (commaExpressionArgu!=null? commaExpressionArgu.getValue(): "commaExpressionArgu==null");
 	}
 
 }
