@@ -43,7 +43,9 @@ public class MiniJavaCompiler {
 
 	private static void printParseTree() {
 		System.out.println("----------------------------- Parse Tree ----------------------------");
-		System.out.println(goalParseTree.getValue());
+		System.out.println(
+				(goalParseTree != null)? goalParseTree.getValue(): "goalParseTree == null"
+					);
 		System.out.println("---------------------------------------------------------------------");
 	}
 

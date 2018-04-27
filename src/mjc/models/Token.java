@@ -6,6 +6,8 @@ public class Token {
 	public static final String UNKNOWN_TOKEN_TYPE = "Unknown Token";
 	public static final String EOF_TOKEN_TYPE = "<EOF>";
 	
+	public static final String EOL_TOKEN_TYPE = "EOL";
+	public static final String SYSOUT_TOKEN_TYPE = "SYSTEM.OUT.PRINTLN";
 //	public static final String LEFT_CURLY_B_TOKEN_TYPE = "LEFT_CURLY_B";
 //	public static final String RIGHT_CURLY_B_TOKEN_TYPE = "RIGHT_CURLY_B";
 //	public static final String LEFT_SQUARE_B_TOKEN_TYPE = "LEFT_SQUARE_B";

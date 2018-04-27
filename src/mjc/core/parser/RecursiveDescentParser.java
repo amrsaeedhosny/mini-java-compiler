@@ -12,8 +12,45 @@ public class RecursiveDescentParser {
 	private IGoal goalRootNode;
 
 	public RecursiveDescentParser(ArrayList<Token> codeTokens) {
-		this.codeTokens = codeTokens;
+		this.codeTokens = refine(codeTokens);
 		lookahead = this.codeTokens.get(0); // references first token in list
+	}
+
+	/**
+	 * A method to prepare refine the tokens list for parsing
+	 * @param tokens tokens after refining
+	 * @return
+	 */
+	private ArrayList<Token> refine(ArrayList<Token> tokens) {
+		for (int i = 0; i< tokens.size(); i++) {
+			Token t = tokens.get(i);
+			if (t.type.equals(Token.EOL_TOKEN_TYPE)) {
+				// remove EOL tokens from the tokens list
+				tokens.remove(t);
+				i--;
+			}
+		}
+//		printCodeTokens(tokens);
+		return tokens;
+	}
+	
+	private static void printCodeTokens(ArrayList<Token> matchedTokens) {
+		System.out.println("----------------------------- Matched Code Tokens ----------------------------");
+		for (Token token: matchedTokens) {
+			String tokenLabel = token.getType();
+			String tokenValue = token.getValue();
+			if (tokenLabel.equals("EOL")) {
+				tokenValue = "ENDOFLINE";
+			}
+			if (tokenLabel.equals(Token.UNKNOWN_TOKEN_TYPE)) {
+				System.out.println("ERROR "+ "< "+ tokenLabel +" > : " +" '" + tokenValue + "' This token did not match any RE @ index " + token.getStartIndex());
+			}
+			else {
+				System.out.println("< "+ tokenLabel +" > : "+ "-" + tokenValue + "-");
+			}
+			
+		}
+		System.out.println("---------------------------------------------------------------------");
 	}
 
 	private void nextToken() {
@@ -69,7 +106,7 @@ public class RecursiveDescentParser {
 		return new Goal(mainClass, classDeclarationPrime);
 	}
 
-	// There is something here
+
 	private IClassDeclarationPrime classDeclarationPrime() {
 		// ClassDeclaration` ::= ClassDeclaration ClassDeclaration` | lambda
 
@@ -80,6 +117,8 @@ public class RecursiveDescentParser {
 
 		IClassDeclarationPrime classDeclarationPrime = classDeclarationPrime();
 		// Why didn't check if classDeclarationPrime == null ???
+		// Ans: This function can never return null
+		
 		return new ClassDeclarationPrime1(classDeclaration, classDeclarationPrime);
 	}
 
@@ -938,7 +977,7 @@ public class RecursiveDescentParser {
 			return new Statement3(expression, statement);
 
 		}
-		if (lookahead.getValue().equals("System.out.println")) {
+		if (lookahead.type.equals(Token.SYSOUT_TOKEN_TYPE)) {
 			// “System.out.println” “(“ Expression “)” “;”
 			nextToken();
 
@@ -1194,12 +1233,12 @@ public class RecursiveDescentParser {
 
 	private IIdentifier identifier() {
 		// Identifier ::= <IDENTIFIER>
-		if (lookahead.getType().equals("ID")) {
-			nextToken();
-			return new Identifier();
+		if (!(lookahead.type.equals("ID") || lookahead.type.equals("MAIN"))) {
+			printSyntaxError(lookahead, "<IDENTIFIER>");
+			return null;
 		}
 		nextToken();
 
-		return null;
+		return new Identifier();
 	}
 }
