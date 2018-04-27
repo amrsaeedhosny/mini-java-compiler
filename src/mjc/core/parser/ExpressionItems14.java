@@ -1,7 +1,6 @@
 package mjc.core.parser;
 
 import mjc.core.parser.interfaces.IAfterDot;
-import mjc.core.parser.interfaces.IExpression;
 import mjc.core.parser.interfaces.IExpressionItems;
 
 public class ExpressionItems14 implements IExpressionItems{

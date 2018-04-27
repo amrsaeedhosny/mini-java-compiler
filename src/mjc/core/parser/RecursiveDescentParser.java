@@ -230,6 +230,10 @@ public class RecursiveDescentParser {
 		nextToken();
 
 		IIdentifier identifier2 = identifier();
+		if (identifier2 == null) {
+			printSyntaxError("mainClass(): identifier2 == null");
+			return null;
+		}
 
 		if (!lookahead.value.equals(")")) {
 			printSyntaxError(lookahead, ")");
@@ -244,6 +248,10 @@ public class RecursiveDescentParser {
 		nextToken();
 
 		IStatement statement = statement();
+		if (statement == null) {
+			printSyntaxError("mainClass(): statement == null");
+			return null;
+		}
 
 		if (!lookahead.value.equals("}")) {
 			printSyntaxError(lookahead, "}");
@@ -268,6 +276,7 @@ public class RecursiveDescentParser {
 		if (varDeclaration == null) {
 			return new VarDeclarationPrime2();
 		}
+
 		IVarDeclarationPrime varDeclarationPrime = varDeclarationPrime();
 		if (varDeclarationPrime == null) {
 			printSyntaxError("varDeclarationPrime(): varDeclarationPrime == null");
@@ -289,27 +298,32 @@ public class RecursiveDescentParser {
 			printSyntaxError("varDeclaration(): identifier == null");
 			return null;
 		}
+
 		if (!lookahead.getValue().equals(";")) {
 			printSyntaxError(lookahead, ";");
 			return null;
 		}
 		nextToken();
+
 		return new VarDeclaration(identifier, type);
 	}
 
 	private IType type() {
 		// Type ::= (“int” | “boolean” | “float” | “String” | “char”) Brackets
+
 		String dataType = lookahead.getValue();
 		if (!dataType.equals("int") || !dataType.equals("boolean") || !dataType.equals("float")
 				|| !dataType.equals("String") || !dataType.equals("char")) {
 			printSyntaxError(lookahead, "Data Type");
 			return null;
 		}
+
 		IBrackets brackets = brackets();
 		if (brackets == null) {
 			printSyntaxError("type(): brackets == null");
 			return null;
 		}
+
 		if (dataType.equals("int"))
 			return new Type1(brackets);
 		if (dataType.equals("boolean"))
@@ -330,105 +344,126 @@ public class RecursiveDescentParser {
 			return new Brackets2();
 		}
 		nextToken();
+
 		if (!lookahead.getValue().equals("]")) {
 			printSyntaxError(lookahead, "]");
 			return null;
 		}
 		nextToken();
+
 		return new Brackets1();
 	}
 
 	private IConstructorDeclarationPrime constructorDeclarationPrime() {
 		// ConstructorDeclaration` ::= ConstructorDeclaration ConstructorDeclaration` |
 		// λ
+
 		IConstructorDeclaration constructorDeclaration = constructorDeclaration();
 		if (constructorDeclaration == null) {
 			return new ConstructorDeclarationPrime2();
 		}
+
 		IConstructorDeclarationPrime constructorDeclarationPrime = constructorDeclarationPrime();
 		if (constructorDeclarationPrime == null) {
 			printSyntaxError("constructorDeclarationPrime(): constructorDeclaration == null");
 			return null;
 		}
+
 		return new ConstructorDeclarationPrime1(constructorDeclarationPrime, constructorDeclaration);
 	}
 
 	private IConstructorDeclaration constructorDeclaration() {
 		// ConstructorDeclatation ::= Identifier “(“ TypeIdentifier “)” “{“
 		// VarDeclaration` Statement` “}”
+
 		IIdentifier identifier = identifier();
 		if (identifier == null) {
 			printSyntaxError("constructorDeclaration(): identifier == null");
 			return null;
 		}
+
 		if (!lookahead.getValue().equals("(")) {
 			printSyntaxError(lookahead, "(");
 			return null;
 		}
 		nextToken();
+
 		ITypeIdentifier typeIdentifier = typeIdentifier();
 		if (typeIdentifier == null) {
 			printSyntaxError("constructorDeclaration(): typeIdentifier == null");
 			return null;
 		}
+
 		if (!lookahead.getValue().equals(")")) {
 			printSyntaxError(lookahead, ")");
 			return null;
 		}
 		nextToken();
+
 		if (!lookahead.getValue().equals("{")) {
 			printSyntaxError(lookahead, "{");
 			return null;
 		}
 		nextToken();
+
 		IVarDeclarationPrime varDeclarationPrime = varDeclarationPrime();
 		if (varDeclarationPrime == null) {
 			printSyntaxError("constructorDeclaration(): varDeclarationPrime == null");
 			return null;
 		}
+
 		IStatmentPrime statmentPrime = statmentPrime();
 		if (statmentPrime == null) {
 			printSyntaxError("constructorDeclaration(): statmentPrime == null");
 			return null;
 		}
+
 		if (!lookahead.getValue().equals("}")) {
 			printSyntaxError(lookahead, "}");
 			return null;
 		}
 		nextToken();
+
 		return new ConstructorDeclaration(identifier, typeIdentifier, varDeclarationPrime, statmentPrime);
 	}
 
 	private IStatmentPrime statmentPrime() {
 		// Statement` ::= Statement Statement` | λ
+
 		IStatement statement = statement();
 		if (statement == null) {
 			return new StatementPrime2();
 		}
+
 		IStatmentPrime statementPrime = statmentPrime();
 		if (statementPrime == null) {
 			printSyntaxError("statmentPrime(): statmentPrime == null");
 			return null;
 		}
+
 		return new StatementPrime1(statement, statementPrime);
 	}
 
 	private ITypeIdentifier typeIdentifier() {
 		// TypeIdentifier ::= Type Identifier CommaTypeIdentifier | λ
+
 		IType type = type();
 		if (type == null) {
 			return new TypeIdentifier2();
 		}
+
 		IIdentifier identifier = identifier();
 		if (identifier == null) {
 			printSyntaxError("typeIdentifier(): identifier == null");
 			return null;
 		}
+
 		ICommaTypeIdentifier commaTypeIdentifier = commaTypeIdentifier();
 		if (commaTypeIdentifier == null) {
 			printSyntaxError("typeIdentifier(): commaTypeIdentifier == null");
 			return null;
 		}
+
 		return new TypeIdentifier1(type, identifier, commaTypeIdentifier);
 	}
 
@@ -445,11 +480,13 @@ public class RecursiveDescentParser {
 			printSyntaxError("commaTypeIdentifier(): type == null");
 			return null;
 		}
+
 		IIdentifier identifier = identifier();
 		if (identifier == null) {
 			printSyntaxError("commaTypeIdentifier(): identifier == null");
 			return null;
 		}
+
 		ICommaTypeIdentifier commaTypeIdentifier = commaTypeIdentifier();
 		if (commaTypeIdentifier == null) {
 			printSyntaxError("commaTypeIdentifier(): commaTypeIdentifier == null");
@@ -461,15 +498,18 @@ public class RecursiveDescentParser {
 
 	private IMethodDeclarationPrime methodDeclarationPrime() {
 		// MethodDeclaration` ::= MethodDeclaration MethodDeclaration` | λ
+
 		IMethodDeclaration methodDeclaration = methodDeclaration();
 		if (methodDeclaration == null) {
 			return new MethodDeclarationPrime2();
 		}
+
 		IMethodDeclarationPrime methodDeclarationPrime = methodDeclarationPrime();
 		if (methodDeclarationPrime == null) {
 			printSyntaxError("methodDeclarationPrime(): methodDeclarationPrime == null");
 			return null;
 		}
+
 		return new MethodDeclarationPrime1(methodDeclaration, methodDeclarationPrime);
 	}
 
@@ -478,21 +518,11 @@ public class RecursiveDescentParser {
 		 * MethodDeclaration ::= (“public” | “private | “protected”) Type Identifier “(“
 		 * TypeIdentifier “)” “{“ VarDeclaration` Statement` “return” Expression “;” “}”
 		 */
-		if (!lookahead.getValue().equals("(")) {
-			printSyntaxError(lookahead, "(");
-			return null;
-		}
-		nextToken();
+
 		String accessModifier = lookahead.getValue();
 		if (!accessModifier.equals("public") || !accessModifier.equals("private")
 				|| !accessModifier.equals("protected")) {
 			printSyntaxError(lookahead, "Access Modifier");
-			return null;
-		}
-		nextToken();
-
-		if (!lookahead.getValue().equals(")")) {
-			printSyntaxError(lookahead, ")");
 			return null;
 		}
 		nextToken();
@@ -502,6 +532,7 @@ public class RecursiveDescentParser {
 			printSyntaxError("methodDeclaration(): type == null");
 			return null;
 		}
+
 		IIdentifier identifier = identifier();
 		if (identifier == null) {
 			printSyntaxError("methodDeclaration(): identifier == null");
@@ -582,6 +613,7 @@ public class RecursiveDescentParser {
 		// Expression ::= (<INTEGER_LITERAL> | <FLOAT_LITERAL>
 		// | “true” | “false” | Identifier | “this” | “new” TypeOrIdentifier
 		// | “!” Expression | “(“ Expression “)” ) Expression`
+
 		if (lookahead.getType().equals("INT")) {
 			nextToken();
 			IExpressionPrime expressionPrime = expressionPrime();
@@ -591,6 +623,7 @@ public class RecursiveDescentParser {
 			}
 			return new Expression1(expressionPrime);
 		}
+
 		if (lookahead.getType().equals("FLOAT")) {
 			nextToken();
 			IExpressionPrime expressionPrime = expressionPrime();
@@ -600,6 +633,7 @@ public class RecursiveDescentParser {
 			}
 			return new Expression2(expressionPrime);
 		}
+
 		if (lookahead.getValue().equals("true")) {
 			nextToken();
 			IExpressionPrime expressionPrime = expressionPrime();
@@ -609,6 +643,7 @@ public class RecursiveDescentParser {
 			}
 			return new Expression3(expressionPrime);
 		}
+
 		if (lookahead.getValue().equals("false")) {
 			nextToken();
 			IExpressionPrime expressionPrime = expressionPrime();
@@ -618,6 +653,7 @@ public class RecursiveDescentParser {
 			}
 			return new Expression4(expressionPrime);
 		}
+
 		if (lookahead.getValue().equals("this")) {
 			nextToken();
 			IExpressionPrime expressionPrime = expressionPrime();
@@ -627,58 +663,79 @@ public class RecursiveDescentParser {
 			}
 			return new Expression6(expressionPrime);
 		}
+
 		if (lookahead.getValue().equals("new")) {
 			nextToken();
+
 			ITypeOrIdentifier typeOrIdentifier = typeOrIdentifier();
 			if (typeOrIdentifier == null) {
 				printSyntaxError("expression(): typeOrIdentifier == null");
 				return null;
 			}
+
 			IExpressionPrime expressionPrime = expressionPrime();
 			if (expressionPrime == null) {
 				printSyntaxError("expression(): expressionPrime == null");
 				return null;
 			}
+
 			return new Expression7(expressionPrime, typeOrIdentifier);
 		}
+
 		if (lookahead.getValue().equals("!")) {
 			nextToken();
+
 			IExpression expression = expression();
 			if (expression == null) {
 				printSyntaxError("expression(): expression == null");
 				return null;
 			}
+
 			IExpressionPrime expressionPrime = expressionPrime();
 			if (expressionPrime == null) {
 				printSyntaxError("expression(): expressionPrime == null");
 				return null;
 			}
+
 			return new Expression8(expression, expressionPrime);
 		}
+
 		if (lookahead.getValue().equals("(")) {
 			nextToken();
+
 			IExpression expression = expression();
 			if (expression == null) {
 				printSyntaxError("expression(): expression == null");
 				return null;
 			}
+
+			if (lookahead.getValue().equals(")")) {
+				printSyntaxError(lookahead, ")");
+				return null;
+			}
+			nextToken();
+
 			IExpressionPrime expressionPrime = expressionPrime();
 			if (expressionPrime == null) {
 				printSyntaxError("expression(): expressionPrime == null");
 				return null;
 			}
+
 			return new Expression9(expression, expressionPrime);
 		}
+
 		IIdentifier identifier = identifier();
 		if (identifier == null) {
 			printSyntaxError("expression(): identifier == null");
 			return null;
 		}
+
 		IExpressionPrime expressionPrime = expressionPrime();
 		if (expressionPrime == null) {
 			printSyntaxError("expression(): expressionPrime == null");
 			return null;
 		}
+
 		return new Expression5(expressionPrime, identifier);
 	}
 
@@ -686,18 +743,20 @@ public class RecursiveDescentParser {
 		// TypeOrIdentifier ::= (“int” | “float” | “String” | “char” | “boolean”)
 		// “[“Expression “]”
 		// | Identifier “(“ ExpressionArgu “)”
+
 		String dataType = lookahead.getValue();
 		if (!dataType.equals("int") || !dataType.equals("boolean") || !dataType.equals("float")
 				|| !dataType.equals("String") || !dataType.equals("char")) {
-			nextToken();
+
 			IIdentifier identifier = identifier();
 			if (identifier == null) {
 				printSyntaxError("typeOrIdentifier(): identifier == null");
 				return null;
 			}
 
-			if (lookahead.getValue().equals("(")) {
+			if (!lookahead.getValue().equals("(")) {
 				printSyntaxError(lookahead, "(");
+				return null;
 			}
 			nextToken();
 
@@ -707,16 +766,19 @@ public class RecursiveDescentParser {
 				return null;
 			}
 
-			if (lookahead.getValue().equals(")")) {
+			if (!lookahead.getValue().equals(")")) {
 				printSyntaxError(lookahead, ")");
+				return null;
 			}
 			nextToken();
 
 			return new TypeOrIdentifier6(identifier, expressionArgu);
 		}
+		nextToken();
 
-		if (lookahead.getValue().equals("[")) {
+		if (!lookahead.getValue().equals("[")) {
 			printSyntaxError(lookahead, "[");
+			return null;
 		}
 		nextToken();
 
@@ -726,10 +788,11 @@ public class RecursiveDescentParser {
 			return null;
 		}
 
-		if (lookahead.getValue().equals("]")) {
+		if (!lookahead.getValue().equals("]")) {
 			printSyntaxError(lookahead, "]");
 		}
 		nextToken();
+
 		if (dataType.equals("int"))
 			return new TypeOrIdentifier1(expression);
 		if (dataType.equals("float"))
@@ -745,34 +808,41 @@ public class RecursiveDescentParser {
 
 	private IExpressionArgu expressionArgu() {
 		// ExpressionArgu ::= Expression CommaExpressionArgu | λ
+
 		IExpression expression = expression();
 		if (expression == null) {
 			return new ExpressionArgu2();
 		}
+
 		ICommaExpressionArgu commaExpressionArgu = commaExpressionArgu();
 		if (commaExpressionArgu == null) {
 			printSyntaxError("expressionArgu(): commaExpressionArgu == null");
 			return null;
 		}
+
 		return new ExpressionArgu1(expression, commaExpressionArgu);
 	}
 
 	private ICommaExpressionArgu commaExpressionArgu() {
 		// CommaExpressionArgu ::= “,” Expression CommaExpressionArgu | λ
-		if (lookahead.getValue().equals(",")) {
-			printSyntaxError(lookahead, ",");
-			return null;
-		}
-		nextToken();
-		IExpression expression = expression();
-		if (expression == null) {
+
+		if (!lookahead.getValue().equals(",")) {
 			return new CommaExpressionArgu2();
 		}
+		nextToken();
+
+		IExpression expression = expression();
+		if (expression == null) {
+			printSyntaxError("commaExpressionArgu(): expression == null");
+			return null;
+		}
+
 		ICommaExpressionArgu commaExpressionArgu = commaExpressionArgu();
 		if (commaExpressionArgu == null) {
 			printSyntaxError("commaExpressionArgu(): commaExpressionArgu == null");
 			return null;
 		}
+
 		return new CommaExpressionArgu1(expression, commaExpressionArgu);
 	}
 
@@ -782,25 +852,29 @@ public class RecursiveDescentParser {
 		// | “while” “(“ Expression “)” Statement
 		// | “System.out.println” “(“ Expression “)” “;”
 		// | Identifier EqualOrBracketExpression
+
 		if (lookahead.getValue().equals("{")) {
 			// “{“ Statement` “}”
 			nextToken();
+
 			IStatmentPrime statmentPrime = statmentPrime();
 			if (statmentPrime == null) {
 				printSyntaxError("statement(): statment == null");
 				return null;
 			}
-			if (!lookahead.getValue().equals("}")) {
 
+			if (!lookahead.getValue().equals("}")) {
 				printSyntaxError(lookahead, "}");
 				return null;
 			}
 			nextToken();
+
 			return new Statement1(statmentPrime);
 		}
 		if (lookahead.getValue().equals("if")) {
 			// “if” “(“ Expression “)” Statement Else
 			nextToken();
+
 			if (!lookahead.getValue().equals("(")) {
 				printSyntaxError(lookahead, "(");
 				return null;
@@ -830,12 +904,13 @@ public class RecursiveDescentParser {
 				printSyntaxError("statement(): else == null");
 				return null;
 			}
+
 			return new Statement2(expression, statement, else1);
 		}
 		if (lookahead.getValue().equals("while")) {
 			// “while” “(“ Expression “)” Statement
-
 			nextToken();
+
 			if (!lookahead.getValue().equals("(")) {
 				printSyntaxError(lookahead, "(");
 				return null;
@@ -866,6 +941,7 @@ public class RecursiveDescentParser {
 		if (lookahead.getValue().equals("System.out.println")) {
 			// “System.out.println” “(“ Expression “)” “;”
 			nextToken();
+
 			if (!lookahead.getValue().equals("(")) {
 				printSyntaxError(lookahead, "(");
 				return null;
@@ -910,17 +986,34 @@ public class RecursiveDescentParser {
 	private IEqualOrBracketExpression equalOrBracketExpression() {
 		// EqualOrBracketExpression ::= “=” Expression “;”
 		// | “[“ Expression “]” “=” Expression “;”
-		if (!lookahead.getValue().equals("=")) {
-			if (!lookahead.getValue().equals("[")) {
-				printSyntaxError(lookahead, "[");
+
+		if (lookahead.getValue().equals("=")) {
+			nextToken();
+
+			IExpression expression = expression();
+			if (expression == null) {
+				printSyntaxError("equalOrBracketExpression(): expression == null");
+				return null;
+			}
+
+			if (!lookahead.getValue().equals(";")) {
+				printSyntaxError(lookahead, ";");
 				return null;
 			}
 			nextToken();
+
+			return new EqualOrBracketExpression1(expression);
+		}
+
+		if (lookahead.getValue().equals("[")) {
+			nextToken();
+
 			IExpression expression1 = expression();
 			if (expression1 == null) {
 				printSyntaxError("equalOrBracketExpression(): expression1 == null");
 				return null;
 			}
+
 			if (!lookahead.getValue().equals("]")) {
 				printSyntaxError(lookahead, "]");
 				return null;
@@ -944,25 +1037,16 @@ public class RecursiveDescentParser {
 				return null;
 			}
 			nextToken();
+
 			return new EqualOrBracketExpression2(expression1, expression2);
 		}
-		nextToken();
-		IExpression expression = expression();
-		if (expression == null) {
-			printSyntaxError("equalOrBracketExpression(): expression == null");
-			return null;
-		}
-		if (lookahead.getValue().equals(";")) {
-			printSyntaxError(lookahead, ";");
-			return null;
-		}
-		nextToken();
-
-		return new EqualOrBracketExpression1(expression);
+		printSyntaxError("equalOrBracketExpression():");
+		return null;
 	}
 
 	private IElse else1() {
 		// Else ::= “else” Statement | λ
+
 		if (!lookahead.getValue().equals("else")) {
 			return new Else2();
 		}
@@ -979,15 +1063,18 @@ public class RecursiveDescentParser {
 
 	private IExpressionPrime expressionPrime() {
 		// Expression` ::= ExpressionItems Expression’ | λ
+
 		IExpressionItems expressionItems = expressionItems();
 		if (expressionItems == null) {
 			return new ExpressionPrime2();
 		}
+
 		IExpressionPrime expressionPrime = expressionPrime();
 		if (expressionPrime == null) {
 			printSyntaxError("expressionPrime(): expressionPrime == null");
 			return null;
 		}
+
 		return new ExpressionPrime1(expressionItems, expressionPrime);
 	}
 
@@ -996,28 +1083,34 @@ public class RecursiveDescentParser {
 		// | "<=" | ">=" | "+" | "-" | "*" | "/" ) Expression
 		// | "[" Expression "]"
 		// | “.” AfterDot
+
 		if (lookahead.getValue().equals("[")) {
 			// "[" Expression "]"
 			nextToken();
+
 			IExpression expression = expression();
 			if (expression == null) {
 				printSyntaxError("expressionItems(): expression == null");
 				return null;
 			}
+
 			if (!lookahead.getValue().equals("]")) {
 				printSyntaxError(lookahead, "]");
 				return null;
 			}
 			nextToken();
+
 			return new ExpressionItems13(expression);
 		} else if (lookahead.getValue().equals(".")) {
 			// “.” AfterDot
 			nextToken();
+
 			IAfterDot afterDot = afterDot();
 			if (afterDot == null) {
 				printSyntaxError("expressionItems(): afterDot == null");
 				return null;
 			}
+
 			return new ExpressionItems14(afterDot);
 		}
 		String operator = lookahead.getValue();
@@ -1028,11 +1121,13 @@ public class RecursiveDescentParser {
 			return null;
 		}
 		nextToken();
+
 		IExpression expression = expression();
 		if (expression == null) {
 			printSyntaxError("expressionItems(): expression == null");
 			return null;
 		}
+
 		if (operator.equals("&&"))
 			return new ExpressionItems1(expression);
 		if (operator.equals("||"))
@@ -1063,30 +1158,37 @@ public class RecursiveDescentParser {
 	private IAfterDot afterDot() {
 		// AfterDot ::= "length"
 		// | Identifier "(" ExpressionArgu ")"
+
 		if (lookahead.getValue().equals("length")) {
 			nextToken();
 			return new AfterDot1();
 		}
+		nextToken();
+
 		IIdentifier identifier = identifier();
 		if (identifier == null) {
 			printSyntaxError("afterDot(): identifier == null");
 			return null;
 		}
+
 		if (lookahead.getValue().equals("(")) {
 			printSyntaxError(lookahead, "(");
 			return null;
 		}
 		nextToken();
+
 		IExpressionArgu expressionArgu = expressionArgu();
 		if (expressionArgu == null) {
 			printSyntaxError("afterDot(): expressionArgu == null");
 			return null;
 		}
+
 		if (lookahead.getValue().equals(")")) {
 			printSyntaxError(lookahead, ")");
 			return null;
 		}
 		nextToken();
+
 		return new AfterDot2(identifier, expressionArgu);
 	}
 
@@ -1097,6 +1199,7 @@ public class RecursiveDescentParser {
 			return new Identifier();
 		}
 		nextToken();
+
 		return null;
 	}
 }
