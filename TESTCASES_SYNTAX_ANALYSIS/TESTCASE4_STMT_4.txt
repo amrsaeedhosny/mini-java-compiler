@@ -1,0 +1,15 @@
+/* HelloWorld.java */
+
+class HelloWorld
+{
+	public static void main(String[] args) {
+		
+		if( y  == 3)
+		System.out.println("hello 1");  // invalid according to grammar
+		
+		if( y[1] != 5)
+		 x = 5;
+		else
+		 x [0]= 10;
+	}
+}

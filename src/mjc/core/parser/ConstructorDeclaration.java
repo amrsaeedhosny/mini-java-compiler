@@ -33,7 +33,7 @@ public class ConstructorDeclaration implements IConstructorDeclaration{
 			+ "("+(typeIdentifier!=null? typeIdentifier.getValue(): "typeIdentifier==null")
 			+ ")" + "{\n"
 			+ (varDeclarationPrime!=null? varDeclarationPrime.getValue(): "varDeclarationPrime==null")
-			+ "\n" +(statmentPrime!=null? statmentPrime.getValue(): "statmentPrime==null")+"}";
+			+ "\n" +(statmentPrime!=null? statmentPrime.getValue(): "statmentPrime==null")+"\n}";
 	}
 
 }

@@ -1,0 +1,263 @@
+< CLASS > : class
+< ID > : HelloWorld
+< EOL > : End of Line
+< LEFT_CURLY_B > : {
+< EOL > : End of Line
+< PUBLIC > : public
+< STATIC > : static
+< VOID > : void
+< MAIN > : main
+< LEFT_ROUND_B > : (
+< STRING > : String
+< LEFT_SQUARE_B > : [
+< RIGHT_SQUARE_B > : ]
+< ID > : args
+< RIGHT_ROUND_B > : )
+< LEFT_CURLY_B > : {
+< EOL > : End of Line
+< SYSTEM.OUT.PRINTLN > : System.out.println
+< LEFT_ROUND_B > : (
+< NEW > : new
+< ID > : BinaryClass
+< LEFT_ROUND_B > : (
+< RIGHT_ROUND_B > : )
+< DOT > : .
+< ID > : binarySearch
+< LEFT_ROUND_B > : (
+< INTEGRAL_LITERAL > : 10
+< RIGHT_ROUND_B > : )
+< RIGHT_ROUND_B > : )
+< SEMICOLON > : ;
+< EOL > : End of Line
+< EOL > : End of Line
+< RIGHT_CURLY_B > : }
+< EOL > : End of Line
+< RIGHT_CURLY_B > : }
+< EOL > : End of Line
+< CLASS > : class
+< ID > : BinaryNode
+< EXTENDS > : extends
+< ID > : BinaryClass
+< EOL > : End of Line
+< LEFT_CURLY_B > : {
+< EOL > : End of Line
+< FLOAT > : float
+< LEFT_SQUARE_B > : [
+< RIGHT_SQUARE_B > : ]
+< ID > : data
+< SEMICOLON > : ;
+< EOL > : End of Line
+< INT > : int
+< ID > : size
+< SEMICOLON > : ;
+< EOL > : End of Line
+< RIGHT_CURLY_B > : }
+< EOL > : End of Line
+< EOL > : End of Line
+< CLASS > : class
+< ID > : BinaryClass
+< EOL > : End of Line
+< LEFT_CURLY_B > : {
+< EOL > : End of Line
+< FLOAT > : float
+< LEFT_SQUARE_B > : [
+< RIGHT_SQUARE_B > : ]
+< ID > : data
+< SEMICOLON > : ;
+< EOL > : End of Line
+< INT > : int
+< ID > : size
+< SEMICOLON > : ;
+< EOL > : End of Line
+< EOL > : End of Line
+< ID > : BinaryClass
+< LEFT_ROUND_B > : (
+< RIGHT_ROUND_B > : )
+< EOL > : End of Line
+< LEFT_CURLY_B > : {
+< EOL > : End of Line
+< ID > : data
+< ASSIGNMENT > : =
+< NEW > : new
+< FLOAT > : float
+< LEFT_SQUARE_B > : [
+< INTEGRAL_LITERAL > : 5
+< RIGHT_SQUARE_B > : ]
+< SEMICOLON > : ;
+< EOL > : End of Line
+< ID > : data
+< LEFT_SQUARE_B > : [
+< INTEGRAL_LITERAL > : 0
+< RIGHT_SQUARE_B > : ]
+< ASSIGNMENT > : =
+< INTEGRAL_LITERAL > : 1
+< SEMICOLON > : ;
+< EOL > : End of Line
+< ID > : data
+< LEFT_SQUARE_B > : [
+< INTEGRAL_LITERAL > : 1
+< RIGHT_SQUARE_B > : ]
+< ASSIGNMENT > : =
+< INTEGRAL_LITERAL > : 2
+< SEMICOLON > : ;
+< EOL > : End of Line
+< ID > : data
+< LEFT_SQUARE_B > : [
+< INTEGRAL_LITERAL > : 2
+< RIGHT_SQUARE_B > : ]
+< ASSIGNMENT > : =
+< INTEGRAL_LITERAL > : 3
+< SEMICOLON > : ;
+< EOL > : End of Line
+< ID > : data
+< LEFT_SQUARE_B > : [
+< INTEGRAL_LITERAL > : 3
+< RIGHT_SQUARE_B > : ]
+< ASSIGNMENT > : =
+< INTEGRAL_LITERAL > : 4
+< SEMICOLON > : ;
+< EOL > : End of Line
+< ID > : data
+< LEFT_SQUARE_B > : [
+< INTEGRAL_LITERAL > : 4
+< RIGHT_SQUARE_B > : ]
+< ASSIGNMENT > : =
+< INTEGRAL_LITERAL > : 5
+< SEMICOLON > : ;
+< EOL > : End of Line
+< EOL > : End of Line
+< RIGHT_CURLY_B > : }
+< EOL > : End of Line
+< EOL > : End of Line
+< PUBLIC > : public
+< BOOLEAN > : boolean
+< ID > : init
+< LEFT_ROUND_B > : (
+< RIGHT_ROUND_B > : )
+< EOL > : End of Line
+< LEFT_CURLY_B > : {
+< EOL > : End of Line
+< ID > : data
+< ASSIGNMENT > : =
+< NEW > : new
+< FLOAT > : float
+< LEFT_SQUARE_B > : [
+< INTEGRAL_LITERAL > : 5
+< RIGHT_SQUARE_B > : ]
+< SEMICOLON > : ;
+< EOL > : End of Line
+< ID > : data
+< LEFT_SQUARE_B > : [
+< INTEGRAL_LITERAL > : 0
+< RIGHT_SQUARE_B > : ]
+< ASSIGNMENT > : =
+< INTEGRAL_LITERAL > : 1
+< SEMICOLON > : ;
+< EOL > : End of Line
+< ID > : data
+< LEFT_SQUARE_B > : [
+< INTEGRAL_LITERAL > : 1
+< RIGHT_SQUARE_B > : ]
+< ASSIGNMENT > : =
+< INTEGRAL_LITERAL > : 2
+< SEMICOLON > : ;
+< EOL > : End of Line
+< ID > : data
+< LEFT_SQUARE_B > : [
+< INTEGRAL_LITERAL > : 2
+< RIGHT_SQUARE_B > : ]
+< ASSIGNMENT > : =
+< INTEGRAL_LITERAL > : 3
+< SEMICOLON > : ;
+< EOL > : End of Line
+< ID > : data
+< LEFT_SQUARE_B > : [
+< INTEGRAL_LITERAL > : 3
+< RIGHT_SQUARE_B > : ]
+< ASSIGNMENT > : =
+< INTEGRAL_LITERAL > : 4
+< SEMICOLON > : ;
+< EOL > : End of Line
+< ID > : data
+< LEFT_SQUARE_B > : [
+< INTEGRAL_LITERAL > : 4
+< RIGHT_SQUARE_B > : ]
+< ASSIGNMENT > : =
+< INTEGRAL_LITERAL > : 5
+< SEMICOLON > : ;
+< EOL > : End of Line
+< RETURN > : return
+< TRUE > : true
+< SEMICOLON > : ;
+< EOL > : End of Line
+< RIGHT_CURLY_B > : }
+< EOL > : End of Line
+< PUBLIC > : public
+< BOOLEAN > : boolean
+< ID > : binarySearch
+< LEFT_ROUND_B > : (
+< INT > : int
+< ID > : key
+< RIGHT_ROUND_B > : )
+< EOL > : End of Line
+< LEFT_CURLY_B > : {
+< EOL > : End of Line
+< INT > : int
+< ID > : low
+< SEMICOLON > : ;
+< EOL > : End of Line
+< INT > : int
+< ID > : high
+< SEMICOLON > : ;
+< EOL > : End of Line
+< INT > : int
+< ID > : middle
+< SEMICOLON > : ;
+< EOL > : End of Line
+< BOOLEAN > : boolean
+< ID > : res
+< SEMICOLON > : ;
+< EOL > : End of Line
+< ID > : low
+< ASSIGNMENT > : =
+< INTEGRAL_LITERAL > : 0
+< SEMICOLON > : ;
+< EOL > : End of Line
+< ID > : high
+< ASSIGNMENT > : =
+< ID > : size
+< MINUS > : -
+< INTEGRAL_LITERAL > : 1
+< SEMICOLON > : ;
+< EOL > : End of Line
+< WHILE > : while
+< LEFT_ROUND_B > : (
+< ID > : high
+< LESSTHAN > : <
+< ID > : low
+< RIGHT_ROUND_B > : )
+< LEFT_CURLY_B > : {
+< EOL > : End of Line
+< ID > : middle
+< ASSIGNMENT > : =
+< ID > : low
+< PLUS > : +
+< ID > : high
+< SEMICOLON > : ;
+< EOL > : End of Line
+< EOL > : End of Line
+< RIGHT_CURLY_B > : }
+< EOL > : End of Line
+< ID > : res
+< ASSIGNMENT > : =
+< FALSE > : false
+< SEMICOLON > : ;
+< EOL > : End of Line
+< RETURN > : return
+< ID > : res
+< SEMICOLON > : ;
+< EOL > : End of Line
+< RIGHT_CURLY_B > : }
+< EOL > : End of Line
+< RIGHT_CURLY_B > : }
+< EOL > : End of Line

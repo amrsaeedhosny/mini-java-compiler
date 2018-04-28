@@ -1,0 +1,45 @@
+< CLASS > : class
+< ID > : WhileExample
+< LEFT_CURLY_B > : {
+< EOL > : End of Line
+< EOL > : End of Line
+< PUBLIC > : public
+< STATIC > : static
+< VOID > : void
+< MAIN > : main
+< LEFT_ROUND_B > : (
+< STRING > : String
+< LEFT_SQUARE_B > : [
+< RIGHT_SQUARE_B > : ]
+< ID > : args
+< RIGHT_ROUND_B > : )
+< LEFT_CURLY_B > : {
+< EOL > : End of Line
+< EOL > : End of Line
+< WHILE > : while
+< LEFT_ROUND_B > : (
+< ID > : i
+< LESSTHAN > : <
+< INTEGRAL_LITERAL > : 10
+< RIGHT_ROUND_B > : )
+< LEFT_CURLY_B > : {
+< EOL > : End of Line
+< SYSTEM.OUT.PRINTLN > : System.out.println
+< LEFT_ROUND_B > : (
+< ID > : i
+< RIGHT_ROUND_B > : )
+< SEMICOLON > : ;
+< EOL > : End of Line
+< ID > : i
+< ASSIGNMENT > : =
+< ID > : i
+< PLUS > : +
+< INTEGRAL_LITERAL > : 1
+< SEMICOLON > : ;
+< EOL > : End of Line
+< RIGHT_CURLY_B > : }
+< EOL > : End of Line
+< RIGHT_CURLY_B > : }
+< EOL > : End of Line
+< RIGHT_CURLY_B > : }
+< EOL > : End of Line

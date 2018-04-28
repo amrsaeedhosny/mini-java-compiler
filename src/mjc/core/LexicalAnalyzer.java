@@ -172,7 +172,7 @@ public final class LexicalAnalyzer {
 				}
 				
 			}
-			System.out.println("Lexical Analyzer: Matched tokens saved to \"" + outputFileName + "\"");
+			System.out.println("--> Lexical Analyzer: Matched tokens saved to \"" + outputFileName + "\"");
 		}
 		catch (Exception e) {
 			e.printStackTrace();

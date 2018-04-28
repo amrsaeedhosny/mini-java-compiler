@@ -36,11 +36,37 @@ public final class CodeTokensReader {
 		String[] stringTokens = line.split(":");
 		ArrayList<Token> tokens = new ArrayList<Token>();
 		for (int i = 0; i < stringTokens.length - 1; i += 2) {
-			Token token = new Token(stringTokens[i].replace("<", "").replace(">", "").trim(),
-					stringTokens[i + 1].replaceAll("-", "").trim());
+			String type = stringTokens[i]
+					.substring(3, stringTokens[i].length()-2)
+					.trim();
+
+			String value = stringTokens[i + 1]
+					.substring(2, stringTokens[i + 1].length()-1)
+					.trim();
+			Token token = new Token(type, value);
 			tokens.add(token);
 		}
 		return tokens;
 	}
+	
+	public static void printCodeTokens(ArrayList<Token> matchedTokens) {
+	System.out.println("----------------------------- Code Tokens ----------------------------");
+	for (Token token : matchedTokens) {
+		String tokenLabel = token.getType();
+		String tokenValue = token.getValue();
+		if (tokenLabel.equals("EOL")) {
+			tokenValue = "ENDOFLINE";
+		}
+		if (tokenLabel.equals(Token.UNKNOWN_TOKEN_TYPE)) {
+			System.out.println("ERROR " + "< " + tokenLabel + " > : " + " '" + tokenValue
+					+ "' This token did not match any RE @ index " + token.getStartIndex());
+		} else {
+			System.out.println("< " + tokenLabel + " > : " + "-" + tokenValue + "-");
+		}
+
+	}
+	System.out.println("---------------------------------------------------------------------");
+}
+
 
 }

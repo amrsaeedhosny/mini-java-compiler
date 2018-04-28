@@ -1,0 +1,37 @@
+< M_COMMENTS > : /* HelloWorld.java */
+< EOL > : End of Line
+< EOL > : End of Line
+< CLASS > : class
+< ID > : HelloWorld
+< EOL > : End of Line
+< LEFT_CURLY_B > : {
+< EOL > : End of Line
+< PUBLIC > : public
+< STATIC > : static
+< VOID > : void
+< MAIN > : main
+< LEFT_ROUND_B > : (
+< STRING > : String
+< LEFT_SQUARE_B > : [
+< RIGHT_SQUARE_B > : ]
+< ID > : args
+< RIGHT_ROUND_B > : )
+< LEFT_CURLY_B > : {
+< EOL > : End of Line
+< SYSTEM.OUT.PRINTLN > : System.out.println
+< LEFT_ROUND_B > : (
+< ID > : x
+< LEFT_SQUARE_B > : [
+< ID > : x
+< DOT > : .
+< LENGTH > : length
+< MINUS > : -
+< INTEGRAL_LITERAL > : 1
+< RIGHT_SQUARE_B > : ]
+< RIGHT_ROUND_B > : )
+< SEMICOLON > : ;
+< EOL > : End of Line
+< RIGHT_CURLY_B > : }
+< EOL > : End of Line
+< RIGHT_CURLY_B > : }
+< EOL > : End of Line

@@ -1,0 +1,8 @@
+/* HelloWorld.java */
+
+class HelloWorld
+{
+	public static void main(String[] args) {
+		System.out.println(x[x.length-1]);
+	}
+}

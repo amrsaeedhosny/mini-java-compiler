@@ -17,52 +17,31 @@ public class RecursiveDescentParser {
 	}
 
 	/**
-	 * A method to prepare refine the tokens list for parsing
+	 * A method to prepare & refine the tokens list for parsing
 	 * 
-	 * @param tokens
-	 *            tokens after refining
+	 * @param tokens tokens after refining
 	 * @return
 	 */
 	private ArrayList<Token> refine(ArrayList<Token> tokens) {
 		for (int i = 0; i < tokens.size(); i++) {
 			Token t = tokens.get(i);
-			if (t.type.equals(Token.EOL_TOKEN_TYPE)) {
-				// remove EOL tokens from the tokens list
+			if (t.type.equals(Token.EOL_TOKEN_TYPE)
+					|| t.type.equals(Token.S_COMMENTS_TOKEN_TYPE)
+					|| t.type.equals(Token.M_COMMENTS_TOKEN_TYPE)
+					) {
+				// remove token from the tokens list
 				tokens.remove(t);
 				i--;
 			}
 		}
-		// printCodeTokens(tokens);
 		return tokens;
 	}
-
-//	private static void printCodeTokens(ArrayList<Token> matchedTokens) {
-//		System.out.println("----------------------------- Matched Code Tokens ----------------------------");
-//		for (Token token : matchedTokens) {
-//			String tokenLabel = token.getType();
-//			String tokenValue = token.getValue();
-//			if (tokenLabel.equals("EOL")) {
-//				tokenValue = "ENDOFLINE";
-//			}
-//			if (tokenLabel.equals(Token.UNKNOWN_TOKEN_TYPE)) {
-//				System.out.println("ERROR " + "< " + tokenLabel + " > : " + " '" + tokenValue
-//						+ "' This token did not match any RE @ index " + token.getStartIndex());
-//			} else {
-//				System.out.println("< " + tokenLabel + " > : " + "-" + tokenValue + "-");
-//			}
-//
-//		}
-//		System.out.println("---------------------------------------------------------------------");
-//	}
-
-	// Ahmed : Error Here When lookahead = EOF
+	
 	private void nextToken() {
 		if (!codeTokens.isEmpty()) { // null safety
 			codeTokens.remove(0);
 		}
 
-		// at the end of input we return an EOF token
-		// Error is here
 		if (codeTokens.isEmpty())
 			lookahead = new Token(Token.EOF_TOKEN_TYPE, "\n");
 		else
@@ -310,7 +289,7 @@ public class RecursiveDescentParser {
 		return new MainClass(identifier1, identifier2, statement);
 	}
 
-	// Ahmed's Work starts here
+	/* Ahmed's Work starts here */
 
 	private IVarDeclarationPrime varDeclarationPrime() {
 		// VarDeclaration` ::= VarDeclaration VarDeclaration` | λ
@@ -654,7 +633,6 @@ public class RecursiveDescentParser {
 
 	}
 
-	// Abdallah: The problem is here
 	private IExpression expression() {
 		// Expression ::= (<INTEGER_LITERAL> | <FLOAT_LITERAL>
 		// | “true” | “false” | Identifier | “this” | “new” TypeOrIdentifier
@@ -781,12 +759,8 @@ public class RecursiveDescentParser {
 
 			return new Expression5(expressionPrime, identifier);
 		}
+		
 		lookahead = temp;
-		// here is the problem, I don't know how to fix it :(
-		// this same problem occurs again in many places in code
-
-		// Ans: I have Fix it :)
-
 		return null;
 	}
 
@@ -797,7 +771,6 @@ public class RecursiveDescentParser {
 
 		String dataType = lookahead.getValue();
 
-		// Abdallah: replaced || with &&
 		if (!dataType.equals("int") && !dataType.equals("boolean") && !dataType.equals("float")
 				&& !dataType.equals("String") && !dataType.equals("char")) {
 
@@ -1166,7 +1139,7 @@ public class RecursiveDescentParser {
 			return new ExpressionItems14(afterDot);
 		} else {
 			String operator = lookahead.getValue();
-			// Abdallah: replaced || with &&
+
 			if (!operator.equals("&&") && !operator.equals("||") && !operator.equals("==") && !operator.equals("!=")
 					&& !operator.equals(">") && !operator.equals("<") && !operator.equals("<=")
 					&& !operator.equals(">=") && !operator.equals("+") && !operator.equals("-") && !operator.equals("*")

@@ -15,7 +15,15 @@
 < LEFT_CURLY_B > : -{-
 < SYSTEM.OUT.PRINTLN > : -System.out.println-
 < LEFT_ROUND_B > : -(-
+< NEW > : -new-
+< ID > : -Fac-
+< LEFT_ROUND_B > : -(-
+< RIGHT_ROUND_B > : -)-
+< DOT > : -.-
+< ID > : -ComputeFac-
+< LEFT_ROUND_B > : -(-
 < INTEGRAL_LITERAL > : -10-
+< RIGHT_ROUND_B > : -)-
 < RIGHT_ROUND_B > : -)-
 < SEMICOLON > : -;-
 < EOL > : -ENDOFLINE-

@@ -1,0 +1,65 @@
+< M_COMMENTS > : /* HelloWorld.java */
+< EOL > : End of Line
+< EOL > : End of Line
+< CLASS > : class
+< ID > : HelloWorld
+< EOL > : End of Line
+< LEFT_CURLY_B > : {
+< EOL > : End of Line
+< PUBLIC > : public
+< STATIC > : static
+< VOID > : void
+< MAIN > : main
+< LEFT_ROUND_B > : (
+< STRING > : String
+< LEFT_SQUARE_B > : [
+< RIGHT_SQUARE_B > : ]
+< ID > : args
+< RIGHT_ROUND_B > : )
+< LEFT_CURLY_B > : {
+< EOL > : End of Line
+< EOL > : End of Line
+< IF > : if
+< LEFT_ROUND_B > : (
+< ID > : y
+< EQUAL > : ==
+< INTEGRAL_LITERAL > : 3
+< RIGHT_ROUND_B > : )
+< EOL > : End of Line
+< SYSTEM.OUT.PRINTLN > : System.out.println
+< LEFT_ROUND_B > : (
+< STRING_LITERAL > : "hello 1"
+< RIGHT_ROUND_B > : )
+< SEMICOLON > : ;
+< EOL > : End of Line
+< EOL > : End of Line
+< IF > : if
+< LEFT_ROUND_B > : (
+< ID > : y
+< LEFT_SQUARE_B > : [
+< INTEGRAL_LITERAL > : 1
+< RIGHT_SQUARE_B > : ]
+< NOT > : !
+< ASSIGNMENT > : =
+< INTEGRAL_LITERAL > : 5
+< RIGHT_ROUND_B > : )
+< EOL > : End of Line
+< ID > : x
+< ASSIGNMENT > : =
+< INTEGRAL_LITERAL > : 5
+< SEMICOLON > : ;
+< EOL > : End of Line
+< ELSE > : else
+< EOL > : End of Line
+< ID > : x
+< LEFT_SQUARE_B > : [
+< INTEGRAL_LITERAL > : 0
+< RIGHT_SQUARE_B > : ]
+< ASSIGNMENT > : =
+< INTEGRAL_LITERAL > : 10
+< SEMICOLON > : ;
+< EOL > : End of Line
+< RIGHT_CURLY_B > : }
+< EOL > : End of Line
+< RIGHT_CURLY_B > : }
+< EOL > : End of Line

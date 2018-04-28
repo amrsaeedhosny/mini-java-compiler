@@ -31,7 +31,7 @@ public class ClassDeclaration implements IClassDeclaration {
 
 	@Override
 	public String getValue() {
-		return "\n\nclass " + (identifier!=null? identifier.getValue(): "identifier==null") 
+		return "\n\nclass " + (identifier!=null? identifier.getValue(): "identifier==null") + " "
 				+ (extendsPrime!=null? extendsPrime.getValue(): "extendsPrime==null") 
 				+ "{" 
 				+ (varDeclarationPrime!=null? varDeclarationPrime.getValue(): "varDeclarationPrime==null") 

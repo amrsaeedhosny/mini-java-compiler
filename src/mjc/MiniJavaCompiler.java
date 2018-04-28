@@ -29,12 +29,15 @@ public class MiniJavaCompiler {
 		int inputMethod = 1; // 1 -> memory , 2 -> file
 		if (inputMethod == 1) {
 			// take input from memory (output of lexical analysis)
+			System.out.println("--> Running Syntax Analysis on the output of lexical analysis\n");
 			goalParseTree = SyntaxAnalyzer.analyze(matchedTokens);
 		}
 		else if (inputMethod == 2) {
 			// take input tokens from file
+			System.out.println("--> Running Syntax Analysis on tokens read from file \"code_tokens.txt\"\n");
 			ArrayList<Token> codeTokens = 
 					CodeTokensReader.read("code_tokens.txt");
+//			CodeTokensReader.printCodeTokens(codeTokens);
 			goalParseTree = SyntaxAnalyzer.analyze(codeTokens);			
 		}
 		printParseTree(); // testing
@@ -42,15 +45,15 @@ public class MiniJavaCompiler {
 	}
 
 	private static void printParseTree() {
-		System.out.println("----------------------------- Parse Tree ----------------------------");
+		System.out.println("\n----------------------------- Parse Tree ----------------------------");
 		System.out.println(
 				(goalParseTree != null)? goalParseTree.getValue(): "goalParseTree == null"
 					);
-		System.out.println("---------------------------------------------------------------------");
+		System.out.println("---------------------------------------------------------------------\n");
 	}
 
 	private static void printCodeTokens() {
-		System.out.println("----------------------------- Matched Code Tokens ----------------------------");
+		System.out.println("\n----------------------------- Matched Code Tokens ----------------------------");
 		for (Token token: matchedTokens) {
 			String tokenLabel = token.getType();
 			String tokenValue = token.getValue();
@@ -65,7 +68,7 @@ public class MiniJavaCompiler {
 			}
 			
 		}
-		System.out.println("---------------------------------------------------------------------");
+		System.out.println("---------------------------------------------------------------------\n");
 	}
 
 }
