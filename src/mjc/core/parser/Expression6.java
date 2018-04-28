@@ -13,6 +13,6 @@ public class Expression6 implements IExpression {
 
 	@Override
 	public String getValue() {
-		return " this " + (expressionPrime!=null? expressionPrime.getValue(): "expressionPrime==null");
+		return "this" + (expressionPrime!=null? expressionPrime.getValue(): "expressionPrime==null");
 	}
 }

@@ -7,7 +7,6 @@ public class Brackets1 implements IBrackets{
 	
 	@Override
 	public String getValue() {
-		// TODO Auto-generated method stub
 		return "["+"]";
 	}
 

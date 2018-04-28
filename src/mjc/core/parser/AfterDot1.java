@@ -7,7 +7,6 @@ public class AfterDot1 implements IAfterDot{
 	
 	@Override
 	public String gtValue() {
-		// TODO Auto-generated method stub
 		return "length";
 	}
 

@@ -36,24 +36,24 @@ public class RecursiveDescentParser {
 		return tokens;
 	}
 
-	private static void printCodeTokens(ArrayList<Token> matchedTokens) {
-		System.out.println("----------------------------- Matched Code Tokens ----------------------------");
-		for (Token token : matchedTokens) {
-			String tokenLabel = token.getType();
-			String tokenValue = token.getValue();
-			if (tokenLabel.equals("EOL")) {
-				tokenValue = "ENDOFLINE";
-			}
-			if (tokenLabel.equals(Token.UNKNOWN_TOKEN_TYPE)) {
-				System.out.println("ERROR " + "< " + tokenLabel + " > : " + " '" + tokenValue
-						+ "' This token did not match any RE @ index " + token.getStartIndex());
-			} else {
-				System.out.println("< " + tokenLabel + " > : " + "-" + tokenValue + "-");
-			}
-
-		}
-		System.out.println("---------------------------------------------------------------------");
-	}
+//	private static void printCodeTokens(ArrayList<Token> matchedTokens) {
+//		System.out.println("----------------------------- Matched Code Tokens ----------------------------");
+//		for (Token token : matchedTokens) {
+//			String tokenLabel = token.getType();
+//			String tokenValue = token.getValue();
+//			if (tokenLabel.equals("EOL")) {
+//				tokenValue = "ENDOFLINE";
+//			}
+//			if (tokenLabel.equals(Token.UNKNOWN_TOKEN_TYPE)) {
+//				System.out.println("ERROR " + "< " + tokenLabel + " > : " + " '" + tokenValue
+//						+ "' This token did not match any RE @ index " + token.getStartIndex());
+//			} else {
+//				System.out.println("< " + tokenLabel + " > : " + "-" + tokenValue + "-");
+//			}
+//
+//		}
+//		System.out.println("---------------------------------------------------------------------");
+//	}
 
 	// Ahmed : Error Here When lookahead = EOF
 	private void nextToken() {
@@ -769,8 +769,9 @@ public class RecursiveDescentParser {
 			}
 
 			return new Expression9(expression, expressionPrime);
-		} else if (identifier() != null) {
-			IIdentifier identifier = identifier();
+		}
+		IIdentifier identifier = identifier();
+		if (identifier != null) {
 
 			IExpressionPrime expressionPrime = expressionPrime();
 			if (expressionPrime == null) {
