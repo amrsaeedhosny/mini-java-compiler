@@ -1,2 +1,2 @@
 # MiniJava Compiler
-A small compiler for MiniJava language. Contains only the lexical analysis & syntax analysis compiler phases.
+A compiler for MiniJava language. It covers only the lexical and syntax analysis phases.
