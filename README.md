@@ -1,2 +1,2 @@
 # MiniJava Compiler
-MiniJava language simple compiler. It covers only the lexical and syntax analysis phases.
+Implementation of MiniJava language compiler. It covers only the lexical and syntax analysis phases.
